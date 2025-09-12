@@ -56,5 +56,10 @@ namespace ProyectoFinalAlgoritmos
             SidePanel.Height = btnInformacion.Height;
             SidePanel.Top = btnInformacion.Top;
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

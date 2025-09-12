@@ -9,3 +9,16 @@ C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\Proyec
 C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.exe
 C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.pdb
 C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.UserControl1.resources
+C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\bin\Debug\ProyectoFinalAlgoritmos.exe.config
+C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\bin\Debug\ProyectoFinalAlgoritmos.exe
+C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\bin\Debug\ProyectoFinalAlgoritmos.pdb
+C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.csproj.AssemblyReference.cache
+C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.exe.config
+C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.Form1.resources
+C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.Properties.Resources.resources
+C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.UserControl1.resources
+C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.csproj.GenerateResource.cache
+C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.csproj.CoreCompileInputs.cache
+C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.exe
+C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.pdb
+C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.frmLogin.resources
