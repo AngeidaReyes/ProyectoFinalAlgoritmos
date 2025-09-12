@@ -1,0 +1,11 @@
+C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\bin\Debug\ProyectoFinalAlgoritmos.exe.config
+C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\bin\Debug\ProyectoFinalAlgoritmos.exe
+C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\bin\Debug\ProyectoFinalAlgoritmos.pdb
+C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.csproj.AssemblyReference.cache
+C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.Form1.resources
+C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.Properties.Resources.resources
+C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.csproj.GenerateResource.cache
+C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.csproj.CoreCompileInputs.cache
+C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.exe
+C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.pdb
+C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.UserControl1.resources
