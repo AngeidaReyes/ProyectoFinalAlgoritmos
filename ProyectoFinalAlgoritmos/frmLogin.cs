@@ -129,5 +129,9 @@ namespace ProyectoFinalAlgoritmos
             }
         }
 
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            logear(txtUsuario.Text, txtPassword.Text);
+        }
     }
 }
