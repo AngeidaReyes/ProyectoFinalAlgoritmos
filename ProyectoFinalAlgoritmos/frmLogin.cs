@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -13,6 +14,9 @@ namespace ProyectoFinalAlgoritmos
 {
     public partial class frmLogin : Form
     {
+        //Cadena de conexión a la base de datos SQL Server
+        SqlConnection conexion = new SqlConnection("Data Source=localhost,1433;Initial Catalog=InventarioBD;User ID=Aniana;Password=12345;");
+
         [System.Runtime.InteropServices.DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn(
     int nLeftRect, int nTopRect, int nRightRect, int nBottomRect,
