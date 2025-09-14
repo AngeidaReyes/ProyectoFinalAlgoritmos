@@ -86,5 +86,52 @@ namespace ProyectoFinalAlgoritmos
             e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
 
         }
+
+        public void logear(string usuario, string contrasena)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SELECT nombre, tipo_usuario FROM Usuarios WHERE usuario=@usuario AND contrasena=@contrasena", conexion);
+                cmd.Parameters.AddWithValue("@usuario", usuario);
+                cmd.Parameters.AddWithValue("@contrasena", contrasena);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    this.Hide();
+                    if (dt.Rows[0]["tipo_usuario"].ToString() == "Administrador")
+                    {
+                        new Form1().Show();
+                        MessageBox.Show("Bienvenido " + dt.Rows[0]["nombre"].ToString() + " (Administrador)");
+
+                    }
+                    else if (dt.Rows[0]["tipo_usuario"].ToString() == "Usuario")
+                    {
+                        new Form1().Show();
+                        MessageBox.Show("Bienvenido " + dt.Rows[0]["nombre"].ToString() + " (Usuario)");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Usuario y/o contraseña incorrectos");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al conectar con la base de datos: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            logear(txtUsuario.Text, txtPassword.Text);
+        }
     }
 }

@@ -160,6 +160,7 @@
             this.btnLogin.TabIndex = 7;
             this.btnLogin.Text = "Iniciar Sesión";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             this.btnLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.btnLogin_Paint);
             // 
             // lnkOlvidar
