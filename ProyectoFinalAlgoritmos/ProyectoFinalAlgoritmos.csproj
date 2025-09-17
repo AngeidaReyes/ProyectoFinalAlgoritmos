@@ -115,5 +115,20 @@
   <ItemGroup>
     <None Include="Resources\menos.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus-sign_8867442 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maxim.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus-sign_8867442.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus-.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maximo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
