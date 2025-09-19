@@ -47,6 +47,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.userControl11 = new ProyectoFinalAlgoritmos.UserControl1();
+            this.userCtrlCatalogo1 = new ProyectoFinalAlgoritmos.UserCtrlCatalogo();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -316,12 +317,20 @@
             this.userControl11.Size = new System.Drawing.Size(1115, 406);
             this.userControl11.TabIndex = 22;
             // 
+            // userCtrlCatalogo1
+            // 
+            this.userCtrlCatalogo1.Location = new System.Drawing.Point(257, 38);
+            this.userCtrlCatalogo1.Name = "userCtrlCatalogo1";
+            this.userCtrlCatalogo1.Size = new System.Drawing.Size(1115, 616);
+            this.userCtrlCatalogo1.TabIndex = 23;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1372, 654);
+            this.Controls.Add(this.userCtrlCatalogo1);
             this.Controls.Add(this.userControl11);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button6);
@@ -364,6 +373,7 @@
         private UserControl1 userControl11;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private UserCtrlCatalogo userCtrlCatalogo1;
     }
 }
 
