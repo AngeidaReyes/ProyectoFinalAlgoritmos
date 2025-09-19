@@ -25,3 +25,7 @@ C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\
 C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.frmLogin.resources
 C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.Botones.resources
 C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.UserCtrlCatalogo.resources
+C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.Botones.resources
+C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.UserCtrlCatalogo.resources
+C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.UsrCtrlDatos.resources
+C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.UsrCtrlProductos.resources

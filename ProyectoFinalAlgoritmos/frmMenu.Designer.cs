@@ -46,8 +46,9 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.userControl11 = new ProyectoFinalAlgoritmos.UserControl1();
+            this.usrCtrlProductos1 = new ProyectoFinalAlgoritmos.UsrCtrlProductos();
             this.userCtrlCatalogo1 = new ProyectoFinalAlgoritmos.UserCtrlCatalogo();
+            this.userControl11 = new ProyectoFinalAlgoritmos.UserControl1();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -308,6 +309,22 @@
             this.button7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button7.UseVisualStyleBackColor = true;
             // 
+            // usrCtrlProductos1
+            // 
+            this.usrCtrlProductos1.Location = new System.Drawing.Point(261, 41);
+            this.usrCtrlProductos1.Name = "usrCtrlProductos1";
+            this.usrCtrlProductos1.Size = new System.Drawing.Size(1111, 608);
+            this.usrCtrlProductos1.TabIndex = 24;
+            // 
+            // userCtrlCatalogo1
+            // 
+            this.userCtrlCatalogo1.AutoScroll = true;
+            this.userCtrlCatalogo1.BackColor = System.Drawing.SystemColors.Control;
+            this.userCtrlCatalogo1.Location = new System.Drawing.Point(257, 38);
+            this.userCtrlCatalogo1.Name = "userCtrlCatalogo1";
+            this.userCtrlCatalogo1.Size = new System.Drawing.Size(1115, 616);
+            this.userCtrlCatalogo1.TabIndex = 23;
+            // 
             // userControl11
             // 
             this.userControl11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -317,19 +334,13 @@
             this.userControl11.Size = new System.Drawing.Size(1115, 406);
             this.userControl11.TabIndex = 22;
             // 
-            // userCtrlCatalogo1
-            // 
-            this.userCtrlCatalogo1.Location = new System.Drawing.Point(257, 38);
-            this.userCtrlCatalogo1.Name = "userCtrlCatalogo1";
-            this.userCtrlCatalogo1.Size = new System.Drawing.Size(1115, 616);
-            this.userCtrlCatalogo1.TabIndex = 23;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1372, 654);
+            this.Controls.Add(this.usrCtrlProductos1);
             this.Controls.Add(this.userCtrlCatalogo1);
             this.Controls.Add(this.userControl11);
             this.Controls.Add(this.panel2);
@@ -374,6 +385,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private UserCtrlCatalogo userCtrlCatalogo1;
+        private UsrCtrlProductos usrCtrlProductos1;
     }
 }
 
