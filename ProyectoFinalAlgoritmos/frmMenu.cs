@@ -19,6 +19,9 @@ namespace ProyectoFinalAlgoritmos
             SidePanel.Height = btnHome.Height;
             SidePanel.Top = btnHome.Top;
             userControl11.BringToFront();
+            userCtrlCatalogo1.Hide();
+
+            LLenarProductos();
 
             this.Text = string.Empty;
             this.ControlBox = false;
@@ -26,6 +29,11 @@ namespace ProyectoFinalAlgoritmos
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
+        private void LLenarProductos()
+        {
+            BDproductos obj = new BDproductos();
+            obj.LlenarBotones(userCtrlCatalogo1);
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -37,6 +45,7 @@ namespace ProyectoFinalAlgoritmos
             SidePanel.Height = btnHome.Height;
             SidePanel.Top = btnHome.Top;
             userControl11.BringToFront();
+            userCtrlCatalogo1.Hide();
 
         }
 
@@ -44,6 +53,8 @@ namespace ProyectoFinalAlgoritmos
         {
             SidePanel.Height = btnCatalogo.Height;
             SidePanel.Top = btnCatalogo.Top;
+            userCtrlCatalogo1.Show();
+            userCtrlCatalogo1.BringToFront();
         }
 
         private void button4_Click(object sender, EventArgs e)

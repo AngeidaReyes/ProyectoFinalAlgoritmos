@@ -50,6 +50,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BDproductos.cs" />
+    <Compile Include="Botones.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Botones.Designer.cs">
+      <DependentUpon>Botones.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +77,15 @@
     <Compile Include="UserControl1.Designer.cs">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserCtrlCatalogo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserCtrlCatalogo.Designer.cs">
+      <DependentUpon>UserCtrlCatalogo.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Botones.resx">
+      <DependentUpon>Botones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,6 +104,9 @@
     </Compile>
     <EmbeddedResource Include="UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserCtrlCatalogo.resx">
+      <DependentUpon>UserCtrlCatalogo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
