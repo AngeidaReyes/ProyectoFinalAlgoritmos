@@ -29,3 +29,8 @@ C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\
 C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.UserCtrlCatalogo.resources
 C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.UsrCtrlDatos.resources
 C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.UsrCtrlProductos.resources
+C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.UsrCtrlDatos.resources
+C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.UsrCtrlProductos.resources
+C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.FormProducto.resources
+C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.Informacion1.resources
+C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.Informacion2.resources

@@ -63,5 +63,34 @@ namespace ProyectoFinalAlgoritmos
             set {  fecha_creacion = value; }
         }
 
+        private void ImgpictureBox1_Click(object sender, EventArgs e)
+        {
+            Form formBG = new Form();
+            using (FormProducto pr = new FormProducto())
+            {
+                formBG.StartPosition = FormStartPosition.Manual;
+                formBG.FormBorderStyle = FormBorderStyle.None;
+                formBG.Opacity = .70d;
+                formBG.BackColor = Color.Black;
+                formBG.WindowState = FormWindowState.Maximized;
+                formBG.TopMost = true;
+                formBG.Location = this.Location;
+                formBG.ShowInTaskbar = false;
+                formBG.Show();
+
+
+
+                pr.TituloPr.Text = this.NameProducto;
+                pr.TituloSec.Text = this.NameProducto;
+                pr.Precio.Text = this.Precio;
+                pr.Descripcion.Text = this.Descripcion;
+                pr.Cantidad.Text = this.CantidadProducto.ToString();
+                pr.ImgpictureBox1.Image = this.ImgProducto;
+
+                pr.Owner = formBG;
+                pr.ShowDialog();
+                formBG.Dispose();
+            }
+        }
     }
 }

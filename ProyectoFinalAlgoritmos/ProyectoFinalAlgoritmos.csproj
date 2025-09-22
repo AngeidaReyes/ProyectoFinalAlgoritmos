@@ -57,6 +57,12 @@
     <Compile Include="Botones.Designer.cs">
       <DependentUpon>Botones.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProducto.Designer.cs">
+      <DependentUpon>FormProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,18 @@
     </Compile>
     <Compile Include="frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Informacion1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Informacion1.Designer.cs">
+      <DependentUpon>Informacion1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Informacion2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Informacion2.Designer.cs">
+      <DependentUpon>Informacion2.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Productos.cs" />
     <Compile Include="Program.cs" />
@@ -100,11 +118,20 @@
     <EmbeddedResource Include="Botones.resx">
       <DependentUpon>Botones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormProducto.resx">
+      <DependentUpon>FormProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informacion1.resx">
+      <DependentUpon>Informacion1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informacion2.resx">
+      <DependentUpon>Informacion2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -169,6 +196,8 @@
   <ItemGroup>
     <None Include="Resources\maximo.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\manhole-cover-1211688.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

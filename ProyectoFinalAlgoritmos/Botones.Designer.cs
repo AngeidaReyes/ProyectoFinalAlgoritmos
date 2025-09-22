@@ -82,6 +82,7 @@
             this.ImgpictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ImgpictureBox1.TabIndex = 0;
             this.ImgpictureBox1.TabStop = false;
+            this.ImgpictureBox1.Click += new System.EventHandler(this.ImgpictureBox1_Click);
             // 
             // Botones
             // 
