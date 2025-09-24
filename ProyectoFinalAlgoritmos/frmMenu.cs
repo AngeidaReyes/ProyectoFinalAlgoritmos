@@ -21,6 +21,7 @@ namespace ProyectoFinalAlgoritmos
             userControl11.BringToFront();
             userCtrlCatalogo1.Hide();
             usrCtrlProductos1.Hide();
+            usrCrtlUsuarios1.Hide();
             LLenarProductos();
 
             this.Text = string.Empty;
@@ -71,6 +72,9 @@ namespace ProyectoFinalAlgoritmos
         {
             SidePanel.Height = btnUser.Height;
             SidePanel.Top = btnUser.Top;
+            userCtrlCatalogo1.Hide();
+            usrCrtlUsuarios1.Show();
+            usrCrtlUsuarios1.BringToFront();
         }
 
         private void button5_Click(object sender, EventArgs e)

@@ -37,7 +37,8 @@ namespace ProyectoFinalAlgoritmos
            
             TitleBar.MouseDown += new MouseEventHandler(TitleBar_MouseDown);
             this.MouseDown += new MouseEventHandler(frmLogin_MouseDown);
-            
+
+            this.AcceptButton = btnLogin;
             txtPassword.UseSystemPasswordChar = true;
 
         }

@@ -88,9 +88,11 @@
       <DependentUpon>Informacion2.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Productos.cs" />
+    <Compile Include="Models\Usuarios.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\RepositorioProductos.cs" />
+    <Compile Include="Repositories\RepositorioUsuarios.cs" />
     <Compile Include="UserControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -102,6 +104,18 @@
     </Compile>
     <Compile Include="UserCtrlCatalogo.Designer.cs">
       <DependentUpon>UserCtrlCatalogo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsrCrtlDatosUsuario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UsrCrtlDatosUsuario.Designer.cs">
+      <DependentUpon>UsrCrtlDatosUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsrCrtlUsuarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UsrCrtlUsuarios.Designer.cs">
+      <DependentUpon>UsrCrtlUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="UsrCtrlDatos.cs">
       <SubType>UserControl</SubType>
@@ -148,6 +162,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserCtrlCatalogo.resx">
       <DependentUpon>UserCtrlCatalogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsrCrtlDatosUsuario.resx">
+      <DependentUpon>UsrCrtlDatosUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsrCrtlUsuarios.resx">
+      <DependentUpon>UsrCrtlUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsrCtrlDatos.resx">
       <DependentUpon>UsrCtrlDatos.cs</DependentUpon>
