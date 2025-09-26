@@ -322,9 +322,10 @@
             // 
             this.userCtrlCatalogo1.AutoScroll = true;
             this.userCtrlCatalogo1.BackColor = System.Drawing.SystemColors.Control;
-            this.userCtrlCatalogo1.Location = new System.Drawing.Point(257, 38);
+            this.userCtrlCatalogo1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userCtrlCatalogo1.Location = new System.Drawing.Point(257, 40);
             this.userCtrlCatalogo1.Name = "userCtrlCatalogo1";
-            this.userCtrlCatalogo1.Size = new System.Drawing.Size(1115, 616);
+            this.userCtrlCatalogo1.Size = new System.Drawing.Size(1115, 574);
             this.userCtrlCatalogo1.TabIndex = 23;
             // 
             // userControl11

@@ -48,6 +48,7 @@ namespace ProyectoFinalAlgoritmos
             userControl11.BringToFront();
             userCtrlCatalogo1.Hide();
             usrCtrlProductos1.Hide();
+            usrCrtlUsuarios1.Hide();
 
         }
 
