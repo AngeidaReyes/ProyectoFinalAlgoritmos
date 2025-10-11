@@ -84,9 +84,82 @@ namespace ProyectoFinalAlgoritmos
             conexion.Close();
             conexion.Dispose();
 
-
-
-
         }
+
+        public void LlenarBotones(UserCtrlCatalogo Contenedor, string nombreFiltro = "", string categoriaFiltro = "")
+        {
+            conexion.Open();
+
+            string query = "SELECT * FROM Productos WHERE 1=1";
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            if (!string.IsNullOrWhiteSpace(nombreFiltro))
+            {
+                query += " AND nombre_Producto LIKE @nombreProducto";
+                parametros.Add(new SqlParameter("@nombreProducto", "%" + nombreFiltro + "%"));
+            }
+
+            if (!string.IsNullOrWhiteSpace(categoriaFiltro))
+            {
+                query += " AND categoria = @categoria";
+                parametros.Add(new SqlParameter("@categoria", categoriaFiltro));
+            }
+
+            SqlCommand comando = new SqlCommand(query, conexion);
+            comando.CommandType = CommandType.Text;
+            comando.Parameters.AddRange(parametros.ToArray());
+
+            SqlDataReader reader = comando.ExecuteReader();
+
+            // ✅ Limpia solo el panel de resultados
+            Contenedor.panelResultados.Controls.Clear();
+
+            int x = 10;
+            int y = 10;
+            int spacing = 10;
+
+            while (reader.Read())
+            {
+                Id_producto = Convert.ToInt32(reader["Id_producto"]);
+                NombreProducto = reader["nombre_producto"].ToString();
+                Precio = Convert.ToDecimal(reader["precio_producto"]);
+                Cantidad = Convert.ToInt32(reader["cantidad_producto"]);
+                Descripcion = reader["descripcion_producto"].ToString();
+                Fecha = Convert.ToDateTime(reader["fecha_creacion"]);
+                Imagen = (byte[])reader["foto_producto"];
+
+               
+                Botones btn = new Botones
+                {
+                    Id = Id_producto,
+                    NameProducto = NombreProducto,
+                    Precio = "$" + Precio.ToString("N2"),
+                    CantidadProducto = Cantidad,
+                    Descripcion = Descripcion,
+                    FechaCreacion = Fecha,
+                    ImgProducto = Image.FromStream(new MemoryStream(Imagen)),
+                    Size = new Size(350, 150),
+                    Location = new Point(x, y)                              
+               
+                };
+
+                // ✅ Agrega al panel de resultados
+                Contenedor.panelResultados.Controls.Add(btn);
+
+                x += btn.Width + spacing;
+                if (x + btn.Width > Contenedor.panelResultados.Width)
+                {
+                    x = 10;
+                    y += btn.Height + spacing;
+                }
+            }
+
+            reader.Close();
+            conexion.Close();
+            conexion.Dispose();
+        }
+
+
+
     }
 }
