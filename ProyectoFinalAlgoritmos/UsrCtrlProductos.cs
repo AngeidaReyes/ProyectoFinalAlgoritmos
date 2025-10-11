@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoFinalAlgoritmos.Models;
 
 namespace ProyectoFinalAlgoritmos
 {
@@ -18,6 +19,8 @@ namespace ProyectoFinalAlgoritmos
             InitializeComponent();
             dgvProductos.ReadOnly = true;
             LeerProductos();
+            Permisos();
+
             usrCtrlDatos1.Hide();
             usrCtrlDatos1.ProductoGuardado += (s, e) => LeerProductos();
         }
@@ -50,6 +53,28 @@ namespace ProyectoFinalAlgoritmos
 
             this.dgvProductos.DataSource = dt;
 
+        }
+
+        public void Permisos()
+        {
+            if (SesionUsuario.TipoUsuario == "Administrador")
+            {
+                btnAgregar.Enabled = true;
+                btnEditar.Enabled = true;
+                btnEliminar.Enabled = true;
+            }
+            else if (SesionUsuario.TipoUsuario == "Empleado")
+            {
+                btnAgregar.Enabled = true;
+                btnEditar.Enabled = true;
+                btnEliminar.Enabled = false;
+            }
+            else
+            {
+                btnAgregar.Enabled = false;
+                btnEditar.Enabled = false;
+                btnEliminar.Enabled = false;
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

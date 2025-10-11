@@ -18,6 +18,7 @@ namespace ProyectoFinalAlgoritmos
             InitializeComponent();
             dgvUsuarios.ReadOnly = true;
             LeerUsuarios();
+            Permisos();
 
             usrCrtlDatosUsuario1.Hide();
             usrCrtlDatosUsuario1.Dock = DockStyle.Fill;
@@ -47,7 +48,23 @@ namespace ProyectoFinalAlgoritmos
             }
             this.dgvUsuarios.DataSource = dt;
         }
-        
+
+        public void Permisos()
+        {
+            if (Models.SesionUsuario.TipoUsuario == "Administrador")
+            {
+                btnAgregar.Enabled = true;
+                btnEditar.Enabled = true;
+                btnEliminar.Enabled = true;
+            }
+            else
+            {
+                btnAgregar.Enabled = false;
+                btnEditar.Enabled = false;
+                btnEliminar.Enabled = false;
+            }
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             usrCrtlDatosUsuario1.LimpiarCampos();

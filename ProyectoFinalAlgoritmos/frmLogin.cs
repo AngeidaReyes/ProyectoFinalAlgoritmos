@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoFinalAlgoritmos.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -102,18 +103,16 @@ namespace ProyectoFinalAlgoritmos
 
                 if (dt.Rows.Count > 0)
                 {
-                    this.Hide();
-                    if (dt.Rows[0]["tipo_usuario"].ToString() == "Administrador")
-                    {
-                        new Form1().Show();
-                        MessageBox.Show("Bienvenido " + dt.Rows[0]["nombre"].ToString() + " (Administrador)");
+                    // Guardar datos del usuario en la sesión
+                    SesionUsuario.Nombre = dt.Rows[0]["nombre"].ToString();
+                    SesionUsuario.TipoUsuario = dt.Rows[0]["tipo_usuario"].ToString();
+                    SesionUsuario.Usuario = usuario;
 
-                    }
-                    else if (dt.Rows[0]["tipo_usuario"].ToString() == "Usuario")
-                    {
-                        new Form1().Show();
-                        MessageBox.Show("Bienvenido " + dt.Rows[0]["nombre"].ToString() + " (Usuario)");
-                    }
+                    this.Hide();
+
+                    new Form1().Show();
+
+                    MessageBox.Show($"Bienvenido {SesionUsuario.Nombre} ({SesionUsuario.TipoUsuario})");
                 }
                 else
                 {
