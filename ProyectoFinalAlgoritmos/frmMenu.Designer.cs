@@ -344,6 +344,7 @@
             this.usrCrtlUsuarios1.Name = "usrCrtlUsuarios1";
             this.usrCrtlUsuarios1.Size = new System.Drawing.Size(1115, 574);
             this.usrCrtlUsuarios1.TabIndex = 25;
+            this.usrCrtlUsuarios1.Load += new System.EventHandler(this.usrCrtlUsuarios1_Load);
             // 
             // Form1
             // 

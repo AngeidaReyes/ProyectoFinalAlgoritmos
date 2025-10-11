@@ -119,5 +119,10 @@ namespace ProyectoFinalAlgoritmos
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void usrCrtlUsuarios1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
