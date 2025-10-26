@@ -133,7 +133,7 @@ namespace ProyectoFinalAlgoritmos
 
             SqlDataReader reader = comando.ExecuteReader();
 
-            // ✅ Limpia solo el panel de resultados
+            // Limpia solo el panel de resultados
             Contenedor.panelResultados.Controls.Clear();
 
             int x = 10;
@@ -180,7 +180,7 @@ namespace ProyectoFinalAlgoritmos
                
                 };
 
-                // ✅ Agrega al panel de resultados
+                // Agrega al panel de resultados
                 Contenedor.panelResultados.Controls.Add(btn);
 
                 x += btn.Width + spacing;
@@ -195,6 +195,109 @@ namespace ProyectoFinalAlgoritmos
             conexion.Close();
             conexion.Dispose();
         }
+
+        private List<BDproductos> OrdenarPorNombreBurbuja(List<BDproductos> productos)
+        {
+            for (int i = 0; i < productos.Count - 1; i++)
+            {
+                for (int j = 0; j < productos.Count - i - 1; j++)
+                {
+                    if (string.Compare(productos[j].NombreProducto, productos[j + 1].NombreProducto) > 0)
+                    {
+                        var temp = productos[j];
+                        productos[j] = productos[j + 1];
+                        productos[j + 1] = temp;
+                    }
+                }
+            }
+            return productos;
+        }
+
+        public void LlenarBotonesOrdenados(UserCtrlCatalogo Contenedor, string nombreFiltro = "", string categoriaFiltro = "")
+
+        {
+            conexion.Open();
+            string query = "SELECT * FROM Productos WHERE 1=1";
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            if (!string.IsNullOrWhiteSpace(nombreFiltro))
+            {
+                query += " AND nombre_Producto LIKE @nombreProducto";
+                parametros.Add(new SqlParameter("@nombreProducto", "%" + nombreFiltro + "%"));
+            }
+
+            if (!string.IsNullOrWhiteSpace(categoriaFiltro))
+            {
+                query += " AND categoria = @categoria";
+                parametros.Add(new SqlParameter("@categoria", categoriaFiltro));
+
+            }
+
+
+
+
+            SqlCommand comando = new SqlCommand(query, conexion);
+            comando.CommandType = CommandType.Text;
+            comando.Parameters.AddRange(parametros.ToArray());
+            SqlDataReader reader = comando.ExecuteReader();
+
+            List<BDproductos> listaProductos = new List<BDproductos>();
+
+            while (reader.Read())
+            {
+                BDproductos prod = new BDproductos
+                {
+                    Id_producto = Convert.ToInt32(reader["Id_producto"]),
+                NombreProducto = reader["nombre_producto"].ToString(),
+                Precio = Convert.ToDecimal(reader["precio_producto"]),
+                Cantidad = Convert.ToInt32(reader["cantidad_producto"]),
+                Descripcion = reader["descripcion_producto"].ToString(),
+                Fecha = Convert.ToDateTime(reader["fecha_creacion"]),
+                    Imagen = reader["foto_producto"] != DBNull.Value
+        ? (byte[])reader["foto_producto"]
+        : null
+                };
+                listaProductos.Add(prod);
+            }
+
+            reader.Close();
+            conexion.Close();
+
+            // Ordenar por nombre usando burbuja
+            listaProductos = OrdenarPorNombreBurbuja(listaProductos);
+
+            // Mostrar en el contenedor
+            Contenedor.panelResultados.Controls.Clear();
+            int x = 10, y = 10, spacing = 10;
+
+            foreach (var prod in listaProductos)
+            {
+                Botones btn = new Botones
+                {
+                    Id = prod.Id_producto,
+                    NameProducto = prod.NombreProducto,
+                    Precio = "$" + prod.Precio.ToString("N2"),
+                    CantidadProducto = prod.Cantidad,
+                    Descripcion = prod.Descripcion,
+                    FechaCreacion = prod.Fecha,
+                    ImgProducto = prod.Imagen != null
+    ? Image.FromStream(new MemoryStream(prod.Imagen))
+    : null,
+                    Size = new Size(350, 150),
+                    Location = new Point(x, y)
+                };
+
+                Contenedor.panelResultados.Controls.Add(btn);
+
+                x += btn.Width + spacing;
+                if (x + btn.Width > Contenedor.panelResultados.Width)
+                {
+                    x = 10;
+                    y += btn.Height + spacing;
+                }
+            }
+        }
+
 
 
 

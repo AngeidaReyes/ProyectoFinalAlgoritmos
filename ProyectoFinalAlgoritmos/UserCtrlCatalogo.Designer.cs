@@ -33,24 +33,26 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panelResultados = new System.Windows.Forms.Panel();
+            this.btnOrdenar = new System.Windows.Forms.Button();
             this.panelBusqueda.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelBusqueda
             // 
             this.panelBusqueda.BackColor = System.Drawing.Color.Transparent;
+            this.panelBusqueda.Controls.Add(this.btnOrdenar);
             this.panelBusqueda.Controls.Add(this.btnRefrescar);
             this.panelBusqueda.Controls.Add(this.txtBuscar);
             this.panelBusqueda.Controls.Add(this.btnBuscar);
             this.panelBusqueda.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBusqueda.Location = new System.Drawing.Point(0, 0);
             this.panelBusqueda.Name = "panelBusqueda";
-            this.panelBusqueda.Size = new System.Drawing.Size(1085, 77);
+            this.panelBusqueda.Size = new System.Drawing.Size(1085, 78);
             this.panelBusqueda.TabIndex = 3;
             // 
             // btnRefrescar
             // 
-            this.btnRefrescar.Location = new System.Drawing.Point(785, 22);
+            this.btnRefrescar.Location = new System.Drawing.Point(817, 22);
             this.btnRefrescar.Name = "btnRefrescar";
             this.btnRefrescar.Size = new System.Drawing.Size(123, 51);
             this.btnRefrescar.TabIndex = 2;
@@ -60,14 +62,14 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(267, 34);
+            this.txtBuscar.Location = new System.Drawing.Point(203, 34);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(305, 26);
             this.txtBuscar.TabIndex = 0;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(620, 22);
+            this.btnBuscar.Location = new System.Drawing.Point(535, 22);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(123, 51);
             this.btnBuscar.TabIndex = 1;
@@ -81,10 +83,20 @@
             this.panelResultados.AutoSize = true;
             this.panelResultados.BackColor = System.Drawing.Color.Transparent;
             this.panelResultados.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelResultados.Location = new System.Drawing.Point(0, 77);
+            this.panelResultados.Location = new System.Drawing.Point(0, 78);
             this.panelResultados.Name = "panelResultados";
-            this.panelResultados.Size = new System.Drawing.Size(1085, 775);
+            this.panelResultados.Size = new System.Drawing.Size(1085, 774);
             this.panelResultados.TabIndex = 4;
+            // 
+            // btnOrdenar
+            // 
+            this.btnOrdenar.Location = new System.Drawing.Point(676, 22);
+            this.btnOrdenar.Name = "btnOrdenar";
+            this.btnOrdenar.Size = new System.Drawing.Size(123, 51);
+            this.btnOrdenar.TabIndex = 4;
+            this.btnOrdenar.Text = "Busqueda ordenada";
+            this.btnOrdenar.UseVisualStyleBackColor = true;
+            this.btnOrdenar.Click += new System.EventHandler(this.btnOrdenar_Click);
             // 
             // UserCtrlCatalogo
             // 
@@ -111,5 +123,6 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnBuscar;
         public System.Windows.Forms.Panel panelResultados;
+        private System.Windows.Forms.Button btnOrdenar;
     }
 }

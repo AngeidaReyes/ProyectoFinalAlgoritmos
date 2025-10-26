@@ -57,5 +57,12 @@ namespace ProyectoFinalAlgoritmos
             obj.LlenarBotones(this);
 
         }
+
+        private void btnOrdenar_Click(object sender, EventArgs e)
+        {
+            panelResultados.Visible = true;
+            BDproductos bd = new BDproductos();
+            bd.LlenarBotonesOrdenados(this, txtBuscar.Text);
+        }
     }
 }
