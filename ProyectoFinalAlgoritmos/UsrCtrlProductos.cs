@@ -32,6 +32,7 @@ namespace ProyectoFinalAlgoritmos
             dt.Columns.Add("Nombre");
             dt.Columns.Add("Descripción");
             dt.Columns.Add("Precio");
+            dt.Columns.Add("Costo");
             dt.Columns.Add("Cantidad");
             dt.Columns.Add("Fecha");
 
@@ -45,7 +46,8 @@ namespace ProyectoFinalAlgoritmos
                 row["Nombre"] = producto.Nombre;
                 row["Descripción"] = producto.Descripcion;
                 row["Precio"] = producto.Precio.ToString("C");
-                row["Cantidad"] = producto.Cantidad;
+                row["Costo"] = producto.Costo.ToString("C");
+                row["Cantidad"] = producto.Cantidad;                
                 row["Fecha"] = producto.Fecha;
 
                 dt.Rows.Add(row);

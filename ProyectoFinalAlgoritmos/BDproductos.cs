@@ -42,16 +42,29 @@ namespace ProyectoFinalAlgoritmos
             int x = 10; // margen inicial X
             int y = 10; // margen inicial Y
             int spacing = 40; // espacio entre botones
+            
 
             while (reader.Read())
             {
+                int idxFoto = reader.GetOrdinal("foto_producto");
+                byte[] foto = null;
+
+                if (!reader.IsDBNull(idxFoto))
+                {
+                    // Validación extra por si el tipo no es exactamente byte[]
+                    var valorFoto = reader[idxFoto];
+                    if (valorFoto is byte[])
+                        foto = (byte[])valorFoto;
+                    else
+                        Console.WriteLine("Advertencia: foto_producto no es del tipo esperado.");
+                }
                 Id_producto = Convert.ToInt32(reader[0]);
                 NombreProducto = reader[1].ToString();
                 Precio = Convert.ToDecimal(reader[2]);
                 Cantidad = Convert.ToInt32(reader[3]);
                 Descripcion = reader[4].ToString();
                 Fecha = Convert.ToDateTime(reader[5]);
-                Imagen = ((byte[])reader[6]);
+                Imagen = foto;
 
                 Botones btn = new Botones();
                 btn.Id = Id_producto;
@@ -60,8 +73,17 @@ namespace ProyectoFinalAlgoritmos
                 btn.CantidadProducto = Cantidad;
                 btn.Descripcion = Descripcion;
                 btn.FechaCreacion = Fecha;
-                MemoryStream ms = new MemoryStream(Imagen);
-                btn.ImgProducto = Image.FromStream(ms);
+                if (Imagen != null && Imagen.Length > 0)
+                {
+                    using (MemoryStream ms = new MemoryStream(Imagen))
+                    {
+                        btn.ImgProducto = Image.FromStream(ms);
+                    }
+                }
+                else
+                {
+                    btn.ImgProducto = null; // o una imagen por defecto si prefieres
+                }
 
                 // Establecer tamaño y posición
                 btn.Size = new Size(450, 250);
@@ -126,9 +148,24 @@ namespace ProyectoFinalAlgoritmos
                 Cantidad = Convert.ToInt32(reader["cantidad_producto"]);
                 Descripcion = reader["descripcion_producto"].ToString();
                 Fecha = Convert.ToDateTime(reader["fecha_creacion"]);
-                Imagen = (byte[])reader["foto_producto"];
+                if (reader["foto_producto"] != DBNull.Value)
+                {
+                    Imagen = (byte[])reader["foto_producto"];
+                }
+                else
+                {
+                    Imagen = null;
+                }
 
-               
+                Image imagenProducto = null;
+                if (Imagen != null && Imagen.Length > 0)
+                {
+                    using (MemoryStream ms = new MemoryStream(Imagen))
+                    {
+                        imagenProducto = Image.FromStream(ms);
+                    }
+                }
+
                 Botones btn = new Botones
                 {
                     Id = Id_producto,
@@ -137,7 +174,7 @@ namespace ProyectoFinalAlgoritmos
                     CantidadProducto = Cantidad,
                     Descripcion = Descripcion,
                     FechaCreacion = Fecha,
-                    ImgProducto = Image.FromStream(new MemoryStream(Imagen)),
+                    ImgProducto = imagenProducto,
                     Size = new Size(350, 150),
                     Location = new Point(x, y)                              
                

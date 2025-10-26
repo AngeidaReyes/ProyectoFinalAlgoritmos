@@ -118,12 +118,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.usrCtrlDatos1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvProductos);
+            this.Controls.Add(this.usrCtrlDatos1);
             this.Name = "UsrCtrlProductos";
             this.Size = new System.Drawing.Size(1115, 647);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();

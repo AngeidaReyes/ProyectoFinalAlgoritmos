@@ -40,6 +40,7 @@ namespace ProyectoFinalAlgoritmos
                 txtNombre.Text = producto.Nombre;
                 txtDescripcion.Text = producto.Descripcion;
                 txtPrecio.Text = producto.Precio.ToString();
+                txtCosto.Text = producto.Costo.ToString();
                 txtCantidad.Text = producto.Cantidad.ToString();
 
                 this.idProducto = producto.Id;
@@ -68,21 +69,43 @@ namespace ProyectoFinalAlgoritmos
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                MessageBox.Show("El nombre del producto es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!decimal.TryParse(txtPrecio.Text, out decimal precio) || precio < 0)
+            {
+                MessageBox.Show("El precio del producto debe ser un número válido mayor o igual a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!int.TryParse(txtCantidad.Text, out int cantidad) || cantidad < 0)
+            {
+                MessageBox.Show("La cantidad del producto debe ser un número entero válido mayor o igual a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!decimal.TryParse(txtCosto.Text, out decimal costo) || costo < 0)
+            {
+                MessageBox.Show("El costo debe ser un número positivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
             Productos producto = new Productos();
             producto.Id = this.idProducto;
             producto.Nombre = txtNombre.Text;
             producto.Descripcion = txtDescripcion.Text;
             producto.Precio = decimal.Parse(txtPrecio.Text);
+            producto.Costo = decimal.Parse(txtCosto.Text);
             producto.Cantidad = int.Parse(txtCantidad.Text);
             producto.Fecha = DateTime.Now;
+            producto.Foto = ConvertirImagenABytes(picFoto.Image);
 
-            if (picFoto.Image != null)
+            DialogResult resultado = MessageBox.Show("¿Desea guardar los cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado != DialogResult.Yes)
             {
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    picFoto.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                    producto.Foto = ms.ToArray();
-                }
+                return;
             }
 
             var repo = new Repositories.RepositorioProductos();
@@ -116,5 +139,29 @@ namespace ProyectoFinalAlgoritmos
                 picFoto.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
+
+        public static byte[] ConvertirImagenABytes(Image imagen)
+        {
+            if (imagen == null)
+                return null;
+
+            try
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (Bitmap bmp = new Bitmap(imagen)) // Clonamos la imagen
+                    {
+                        bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                        return ms.ToArray();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al convertir la imagen: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
     }
 }

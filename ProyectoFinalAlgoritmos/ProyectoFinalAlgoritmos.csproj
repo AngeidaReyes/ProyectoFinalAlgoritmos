@@ -87,6 +87,7 @@
     <Compile Include="Informacion2.Designer.cs">
       <DependentUpon>Informacion2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Movimientos.cs" />
     <Compile Include="Models\Productos.cs" />
     <Compile Include="Models\SesionUsuario.cs" />
     <Compile Include="Models\Usuarios.cs" />

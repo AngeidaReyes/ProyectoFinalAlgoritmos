@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoFinalAlgoritmos.Models;
 
 namespace ProyectoFinalAlgoritmos
 {
@@ -23,11 +24,26 @@ namespace ProyectoFinalAlgoritmos
             usrCtrlProductos1.Hide();
             usrCrtlUsuarios1.Hide();
             LLenarProductos();
+            Permisos();
 
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+
+        }
+
+        public void Permisos()
+        {
+            if (SesionUsuario.TipoUsuario == "Administrador")
+            {
+                btnUser.Enabled = true;
+            }
+            else
+            {
+                btnUser.Enabled = false;
+                btnUser.Hide();
+            }
         }
 
         private void LLenarProductos()

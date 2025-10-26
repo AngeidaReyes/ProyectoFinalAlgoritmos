@@ -44,6 +44,8 @@
             this.btnCargarImagen = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.picFoto = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtCosto = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -201,10 +203,29 @@
             this.picFoto.TabIndex = 11;
             this.picFoto.TabStop = false;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(409, 369);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 20);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Costo";
+            // 
+            // txtCosto
+            // 
+            this.txtCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCosto.Location = new System.Drawing.Point(413, 392);
+            this.txtCosto.Name = "txtCosto";
+            this.txtCosto.Size = new System.Drawing.Size(164, 26);
+            this.txtCosto.TabIndex = 17;
+            // 
             // UsrCtrlDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtCosto);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnCargarImagen);
             this.Controls.Add(this.lblTitulo);
@@ -247,5 +268,7 @@
         private System.Windows.Forms.Button btnCargarImagen;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtCosto;
     }
 }

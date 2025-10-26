@@ -17,14 +17,34 @@ namespace ProyectoFinalAlgoritmos.Repositories
             var productos = new List<Productos>();
             try
             {
-                using (var conexion = new System.Data.SqlClient.SqlConnection(connectionString))
+                using (var conexion = new SqlConnection(connectionString))
                 {
                     conexion.Open();
-                    var comando = new System.Data.SqlClient.SqlCommand("SELECT id_producto, nombre_producto, precio_producto, cantidad_producto, descripcion_producto, foto_producto, fecha_creacion FROM Productos ORDER BY id_producto DESC", conexion);
+                    var comando = new SqlCommand(@"
+                SELECT id_producto, nombre_producto, precio_producto, cantidad_producto, 
+                       descripcion_producto, foto_producto, fecha_creacion, costo_producto 
+                FROM Productos 
+                ORDER BY id_producto DESC", conexion);
+
                     using (var lector = comando.ExecuteReader())
                     {
+                        // Obtener índice seguro de la columna binaria
+                        int idxFoto = lector.GetOrdinal("foto_producto");
+
                         while (lector.Read())
                         {
+                            byte[] foto = null;
+
+                            if (!lector.IsDBNull(idxFoto))
+                            {
+                                // Validación extra por si el tipo no es exactamente byte[]
+                                var valorFoto = lector[idxFoto];
+                                if (valorFoto is byte[])
+                                    foto = (byte[])valorFoto;
+                                else
+                                    Console.WriteLine("Advertencia: foto_producto no es del tipo esperado.");
+                            }
+
                             productos.Add(new Productos
                             {
                                 Id = lector.GetInt32(0),
@@ -32,8 +52,9 @@ namespace ProyectoFinalAlgoritmos.Repositories
                                 Precio = lector.GetDecimal(2),
                                 Cantidad = lector.GetInt32(3),
                                 Descripcion = lector.GetString(4),
-                                Foto = lector.IsDBNull(5) ? null : (byte[])lector[5],
-                                Fecha = lector.GetDateTime(6)
+                                Foto = foto,
+                                Fecha = lector.GetDateTime(6),
+                                Costo = lector.GetDecimal(7)
                             });
                         }
                     }
@@ -41,7 +62,6 @@ namespace ProyectoFinalAlgoritmos.Repositories
             }
             catch (Exception ex)
             {
-                // Manejo de errores (puedes registrar el error o mostrar un mensaje)
                 Console.WriteLine("Error al obtener productos: " + ex.Message);
             }
             return productos;
@@ -53,13 +73,27 @@ namespace ProyectoFinalAlgoritmos.Repositories
             using (var conexion = new SqlConnection(connectionString))
             {
                 conexion.Open();
-                var comando = new SqlCommand("SELECT id_producto, nombre_producto, precio_producto, cantidad_producto, descripcion_producto, foto_producto, fecha_creacion FROM Productos WHERE id_producto = @id", conexion);
+                var comando = new SqlCommand("SELECT id_producto, nombre_producto, precio_producto, cantidad_producto, descripcion_producto, foto_producto, fecha_creacion, costo_producto FROM Productos WHERE id_producto = @id", conexion);
                 comando.Parameters.AddWithValue("@id", id);
 
                 using (var lector = comando.ExecuteReader())
                 {
+                    int idxFoto = lector.GetOrdinal("foto_producto");
+
                     if (lector.Read())
                     {
+                        byte[] foto = null;
+
+                        if (!lector.IsDBNull(idxFoto))
+                        {
+                            // Validación extra por si el tipo no es exactamente byte[]
+                            var valorFoto = lector[idxFoto];
+                            if (valorFoto is byte[])
+                                foto = (byte[])valorFoto;
+                            else
+                                Console.WriteLine("Advertencia: foto_producto no es del tipo esperado.");
+                        }
+
                         producto = new Productos
                         {
                             Id = lector.GetInt32(0),
@@ -67,8 +101,9 @@ namespace ProyectoFinalAlgoritmos.Repositories
                             Precio = lector.GetDecimal(2),
                             Cantidad = lector.GetInt32(3),
                             Descripcion = lector.GetString(4),
-                            Foto = lector.IsDBNull(5) ? null : (byte[])lector[5],
-                            Fecha = lector.GetDateTime(6)
+                            Foto = foto,
+                            Fecha = lector.GetDateTime(6),
+                            Costo = lector.GetDecimal(7)
                         };
                     }
                 }
@@ -84,14 +119,15 @@ namespace ProyectoFinalAlgoritmos.Repositories
                 using (var conexion = new System.Data.SqlClient.SqlConnection(connectionString))
                 {
                     conexion.Open();
-                    var comando = new System.Data.SqlClient.SqlCommand("INSERT INTO Productos (nombre_producto, descripcion_producto, precio_producto, cantidad_producto, foto_producto, fecha_creacion) VALUES (@Nombre, @Descripcion, @Precio, @Cantidad, @Foto, @Fecha)", conexion);
+                    var comando = new System.Data.SqlClient.SqlCommand("INSERT INTO Productos (nombre_producto, descripcion_producto, precio_producto, cantidad_producto, foto_producto, fecha_creacion, costo_producto) VALUES (@Nombre, @Descripcion, @Precio, @Cantidad, @Foto, @Fecha, @Costo)", conexion);
                     comando.Parameters.AddWithValue("@Nombre", producto.Nombre);
                     comando.Parameters.AddWithValue("@Descripcion", producto.Descripcion);
                     comando.Parameters.AddWithValue("@Precio", producto.Precio);
                     comando.Parameters.AddWithValue("@Cantidad", producto.Cantidad);
                     comando.Parameters.AddWithValue("@Fecha", producto.Fecha);
+                    comando.Parameters.AddWithValue("@Costo", producto.Costo);
 
-                    if(producto.Foto != null)
+                    if (producto.Foto != null)
                         comando.Parameters.Add("@Foto", SqlDbType.VarBinary).Value = producto.Foto;
                     else
                         comando.Parameters.Add("@Foto", SqlDbType.VarBinary).Value = DBNull.Value;
@@ -113,13 +149,14 @@ namespace ProyectoFinalAlgoritmos.Repositories
                 using (var conexion = new System.Data.SqlClient.SqlConnection(connectionString))
                 {
                     conexion.Open();
-                    var comando = new System.Data.SqlClient.SqlCommand("UPDATE Productos SET nombre_producto = @Nombre, descripcion_producto = @Descripcion, precio_producto = @Precio, cantidad_producto = @Cantidad, foto_producto = @Foto WHERE id_producto = @Id", conexion);
+                    var comando = new System.Data.SqlClient.SqlCommand("UPDATE Productos SET nombre_producto = @Nombre, descripcion_producto = @Descripcion, precio_producto = @Precio, cantidad_producto = @Cantidad, foto_producto = @Foto, costo_producto = @Costo WHERE id_producto = @Id", conexion);
                     comando.Parameters.AddWithValue("@Id", producto.Id);
                     comando.Parameters.AddWithValue("@Nombre", producto.Nombre);
                     comando.Parameters.AddWithValue("@Descripcion", producto.Descripcion);
                     comando.Parameters.AddWithValue("@Precio", producto.Precio);
                     comando.Parameters.AddWithValue("@Cantidad", producto.Cantidad);
                     comando.Parameters.AddWithValue("@Foto", (object)producto.Foto ?? DBNull.Value);
+                    comando.Parameters.AddWithValue("@Costo", producto.Costo);
                     comando.ExecuteNonQuery();
                 }
             }
@@ -144,7 +181,6 @@ namespace ProyectoFinalAlgoritmos.Repositories
             }
             catch (Exception ex)
             {
-                // Manejo de errores (puedes registrar el error o mostrar un mensaje)
                 Console.WriteLine("Error al eliminar producto: " + ex.Message);                
             }
         }
