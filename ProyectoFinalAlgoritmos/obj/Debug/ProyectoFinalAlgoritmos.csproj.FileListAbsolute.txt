@@ -41,3 +41,5 @@ C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\
 C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.UsrCrtlUsuarios.resources
 C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.UsrCrtlDatosUsuario.resources
 C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.UsrCrtlUsuarios.resources
+C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.UsrCtrlDatosMateriaPrima.resources
+C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.UsrCtrlMateriaPrima.resources

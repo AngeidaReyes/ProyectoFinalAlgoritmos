@@ -21,7 +21,7 @@ namespace ProyectoFinalAlgoritmos.Repositories
                 {
                     conexion.Open();
                     var comando = new SqlCommand(@"
-                SELECT id_producto, nombre_producto, precio_producto, cantidad_producto, 
+                SELECT id_producto, nombre_producto, precio_producto, 
                        descripcion_producto, foto_producto, fecha_creacion, costo_producto 
                 FROM Productos 
                 ORDER BY id_producto DESC", conexion);
@@ -49,12 +49,11 @@ namespace ProyectoFinalAlgoritmos.Repositories
                             {
                                 Id = lector.GetInt32(0),
                                 Nombre = lector.GetString(1),
-                                Precio = lector.GetDecimal(2),
-                                Cantidad = lector.GetInt32(3),
-                                Descripcion = lector.GetString(4),
+                                Precio = lector.GetDecimal(2),                                
+                                Descripcion = lector.GetString(3),
                                 Foto = foto,
-                                Fecha = lector.GetDateTime(6),
-                                Costo = lector.GetDecimal(7)
+                                Fecha = lector.GetDateTime(5),
+                                Costo = lector.GetDecimal(6)
                             });
                         }
                     }
@@ -73,7 +72,7 @@ namespace ProyectoFinalAlgoritmos.Repositories
             using (var conexion = new SqlConnection(connectionString))
             {
                 conexion.Open();
-                var comando = new SqlCommand("SELECT id_producto, nombre_producto, precio_producto, cantidad_producto, descripcion_producto, foto_producto, fecha_creacion, costo_producto FROM Productos WHERE id_producto = @id", conexion);
+                var comando = new SqlCommand("SELECT id_producto, nombre_producto, precio_producto, descripcion_producto, foto_producto, fecha_creacion, costo_producto FROM Productos WHERE id_producto = @id", conexion);
                 comando.Parameters.AddWithValue("@id", id);
 
                 using (var lector = comando.ExecuteReader())
@@ -98,12 +97,11 @@ namespace ProyectoFinalAlgoritmos.Repositories
                         {
                             Id = lector.GetInt32(0),
                             Nombre = lector.GetString(1),
-                            Precio = lector.GetDecimal(2),
-                            Cantidad = lector.GetInt32(3),
-                            Descripcion = lector.GetString(4),
+                            Precio = lector.GetDecimal(2),                            
+                            Descripcion = lector.GetString(3),
                             Foto = foto,
-                            Fecha = lector.GetDateTime(6),
-                            Costo = lector.GetDecimal(7)
+                            Fecha = lector.GetDateTime(5),
+                            Costo = lector.GetDecimal(6)
                         };
                     }
                 }
@@ -119,11 +117,10 @@ namespace ProyectoFinalAlgoritmos.Repositories
                 using (var conexion = new System.Data.SqlClient.SqlConnection(connectionString))
                 {
                     conexion.Open();
-                    var comando = new System.Data.SqlClient.SqlCommand("INSERT INTO Productos (nombre_producto, descripcion_producto, precio_producto, cantidad_producto, foto_producto, fecha_creacion, costo_producto) VALUES (@Nombre, @Descripcion, @Precio, @Cantidad, @Foto, @Fecha, @Costo)", conexion);
+                    var comando = new System.Data.SqlClient.SqlCommand("INSERT INTO Productos (nombre_producto, descripcion_producto, precio_producto, foto_producto, fecha_creacion, costo_producto) VALUES (@Nombre, @Descripcion, @Precio, @Foto, @Fecha, @Costo)", conexion);
                     comando.Parameters.AddWithValue("@Nombre", producto.Nombre);
                     comando.Parameters.AddWithValue("@Descripcion", producto.Descripcion);
-                    comando.Parameters.AddWithValue("@Precio", producto.Precio);
-                    comando.Parameters.AddWithValue("@Cantidad", producto.Cantidad);
+                    comando.Parameters.AddWithValue("@Precio", producto.Precio);                    
                     comando.Parameters.AddWithValue("@Fecha", producto.Fecha);
                     comando.Parameters.AddWithValue("@Costo", producto.Costo);
 
@@ -149,12 +146,11 @@ namespace ProyectoFinalAlgoritmos.Repositories
                 using (var conexion = new System.Data.SqlClient.SqlConnection(connectionString))
                 {
                     conexion.Open();
-                    var comando = new System.Data.SqlClient.SqlCommand("UPDATE Productos SET nombre_producto = @Nombre, descripcion_producto = @Descripcion, precio_producto = @Precio, cantidad_producto = @Cantidad, foto_producto = @Foto, costo_producto = @Costo WHERE id_producto = @Id", conexion);
+                    var comando = new System.Data.SqlClient.SqlCommand("UPDATE Productos SET nombre_producto = @Nombre, descripcion_producto = @Descripcion, precio_producto = @Precio, foto_producto = @Foto, costo_producto = @Costo WHERE id_producto = @Id", conexion);
                     comando.Parameters.AddWithValue("@Id", producto.Id);
                     comando.Parameters.AddWithValue("@Nombre", producto.Nombre);
                     comando.Parameters.AddWithValue("@Descripcion", producto.Descripcion);
-                    comando.Parameters.AddWithValue("@Precio", producto.Precio);
-                    comando.Parameters.AddWithValue("@Cantidad", producto.Cantidad);
+                    comando.Parameters.AddWithValue("@Precio", producto.Precio);                    
                     comando.Parameters.AddWithValue("@Foto", (object)producto.Foto ?? DBNull.Value);
                     comando.Parameters.AddWithValue("@Costo", producto.Costo);
                     comando.ExecuteNonQuery();

@@ -41,7 +41,7 @@ namespace ProyectoFinalAlgoritmos
                 txtDescripcion.Text = producto.Descripcion;
                 txtPrecio.Text = producto.Precio.ToString();
                 txtCosto.Text = producto.Costo.ToString();
-                txtCantidad.Text = producto.Cantidad.ToString();
+                
 
                 this.idProducto = producto.Id;
 
@@ -62,8 +62,7 @@ namespace ProyectoFinalAlgoritmos
             txtId.Text = "";
             txtNombre.Text = "";
             txtDescripcion.Text = "";
-            txtPrecio.Text = "";
-            txtCantidad.Text = "";
+            txtPrecio.Text = "";            
             picFoto.Image = null; 
         }
 
@@ -79,11 +78,7 @@ namespace ProyectoFinalAlgoritmos
                 MessageBox.Show("El precio del producto debe ser un número válido mayor o igual a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!int.TryParse(txtCantidad.Text, out int cantidad) || cantidad < 0)
-            {
-                MessageBox.Show("La cantidad del producto debe ser un número entero válido mayor o igual a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            
             if (!decimal.TryParse(txtCosto.Text, out decimal costo) || costo < 0)
             {
                 MessageBox.Show("El costo debe ser un número positivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -96,8 +91,7 @@ namespace ProyectoFinalAlgoritmos
             producto.Nombre = txtNombre.Text;
             producto.Descripcion = txtDescripcion.Text;
             producto.Precio = decimal.Parse(txtPrecio.Text);
-            producto.Costo = decimal.Parse(txtCosto.Text);
-            producto.Cantidad = int.Parse(txtCantidad.Text);
+            producto.Costo = decimal.Parse(txtCosto.Text);            
             producto.Fecha = DateTime.Now;
             producto.Foto = ConvertirImagenABytes(picFoto.Image);
 

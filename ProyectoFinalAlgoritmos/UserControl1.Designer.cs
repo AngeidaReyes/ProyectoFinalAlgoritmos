@@ -39,10 +39,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(45, 182);
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(23, 165);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(495, 150);
+            this.label4.Size = new System.Drawing.Size(460, 207);
             this.label4.TabIndex = 6;
             this.label4.Text = resources.GetString("label4.Text");
             // 
@@ -50,18 +50,18 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(308, 130);
+            this.label3.Location = new System.Drawing.Point(289, 98);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 43);
+            this.label3.Size = new System.Drawing.Size(221, 43);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Anual";
+            this.label3.Text = "Empresarial";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Elephant", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(29, 19);
+            this.label2.Location = new System.Drawing.Point(24, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(456, 123);
             this.label2.TabIndex = 4;
@@ -69,7 +69,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::ProyectoFinalAlgoritmos.Properties.Resources.Metal_casting_scaled_1;
             this.pictureBox1.Location = new System.Drawing.Point(549, 40);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(502, 341);

@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProyectoFinalAlgoritmos
+namespace ProyectoFinalAlgoritmos.Models
 {
-    public class Productos
+    public class MateriaPrima
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
+        public string Unidad { get; set; }
         public decimal Precio { get; set; }
-        public decimal Costo { get; set; }
-        public string Descripcion { get; set; }
-        public byte[] Foto { get; set; }
+        public decimal Cantidad { get; set; }
+        public decimal Minimo { get; set; }
         public DateTime Fecha { get; set; }
+
+        public decimal ValorTotal => Precio * Cantidad;
     }
 }

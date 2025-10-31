@@ -16,16 +16,14 @@ namespace ProyectoFinalAlgoritmos
         private string nombreProducto;
         private string descripcion;
         private decimal precio;
-        private byte[] imagen;
-        private int cantidad;
+        private byte[] imagen;        
         private DateTime fecha;
 
         public int Id_producto { get => id_producto; set => id_producto = value; }
         public string NombreProducto { get => nombreProducto; set => nombreProducto = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public decimal Precio { get => precio; set => precio = value; }
-        public byte[] Imagen { get => imagen; set => imagen = value; }
-        public int Cantidad { get => cantidad; set => cantidad = value; }
+        public byte[] Imagen { get => imagen; set => imagen = value; }        
         public DateTime Fecha { get => fecha; set => fecha = value; }
 
 
@@ -60,17 +58,15 @@ namespace ProyectoFinalAlgoritmos
                 }
                 Id_producto = Convert.ToInt32(reader[0]);
                 NombreProducto = reader[1].ToString();
-                Precio = Convert.ToDecimal(reader[2]);
-                Cantidad = Convert.ToInt32(reader[3]);
-                Descripcion = reader[4].ToString();
-                Fecha = Convert.ToDateTime(reader[5]);
+                Precio = Convert.ToDecimal(reader[2]);               
+                Descripcion = reader[3].ToString();
+                Fecha = Convert.ToDateTime(reader[4]);
                 Imagen = foto;
 
                 Botones btn = new Botones();
                 btn.Id = Id_producto;
                 btn.NameProducto = NombreProducto;
-                btn.Precio = "$" + Precio.ToString("N2");
-                btn.CantidadProducto = Cantidad;
+                btn.Precio = "$" + Precio.ToString("N2");               
                 btn.Descripcion = Descripcion;
                 btn.FechaCreacion = Fecha;
                 if (Imagen != null && Imagen.Length > 0)
@@ -144,8 +140,7 @@ namespace ProyectoFinalAlgoritmos
             {
                 Id_producto = Convert.ToInt32(reader["Id_producto"]);
                 NombreProducto = reader["nombre_producto"].ToString();
-                Precio = Convert.ToDecimal(reader["precio_producto"]);
-                Cantidad = Convert.ToInt32(reader["cantidad_producto"]);
+                Precio = Convert.ToDecimal(reader["precio_producto"]);                
                 Descripcion = reader["descripcion_producto"].ToString();
                 Fecha = Convert.ToDateTime(reader["fecha_creacion"]);
                 if (reader["foto_producto"] != DBNull.Value)
@@ -170,8 +165,7 @@ namespace ProyectoFinalAlgoritmos
                 {
                     Id = Id_producto,
                     NameProducto = NombreProducto,
-                    Precio = "$" + Precio.ToString("N2"),
-                    CantidadProducto = Cantidad,
+                    Precio = "$" + Precio.ToString("N2"),                    
                     Descripcion = Descripcion,
                     FechaCreacion = Fecha,
                     ImgProducto = imagenProducto,
@@ -249,8 +243,7 @@ namespace ProyectoFinalAlgoritmos
                 {
                     Id_producto = Convert.ToInt32(reader["Id_producto"]),
                 NombreProducto = reader["nombre_producto"].ToString(),
-                Precio = Convert.ToDecimal(reader["precio_producto"]),
-                Cantidad = Convert.ToInt32(reader["cantidad_producto"]),
+                Precio = Convert.ToDecimal(reader["precio_producto"]),                
                 Descripcion = reader["descripcion_producto"].ToString(),
                 Fecha = Convert.ToDateTime(reader["fecha_creacion"]),
                     Imagen = reader["foto_producto"] != DBNull.Value
@@ -276,8 +269,7 @@ namespace ProyectoFinalAlgoritmos
                 {
                     Id = prod.Id_producto,
                     NameProducto = prod.NombreProducto,
-                    Precio = "$" + prod.Precio.ToString("N2"),
-                    CantidadProducto = prod.Cantidad,
+                    Precio = "$" + prod.Precio.ToString("N2"),                   
                     Descripcion = prod.Descripcion,
                     FechaCreacion = prod.Fecha,
                     ImgProducto = prod.Imagen != null

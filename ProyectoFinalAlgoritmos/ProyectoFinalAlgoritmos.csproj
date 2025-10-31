@@ -87,12 +87,14 @@
     <Compile Include="Informacion2.Designer.cs">
       <DependentUpon>Informacion2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\MateriaPrima.cs" />
     <Compile Include="Models\Movimientos.cs" />
     <Compile Include="Models\Productos.cs" />
     <Compile Include="Models\SesionUsuario.cs" />
     <Compile Include="Models\Usuarios.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\RepositorioMateriaPrima.cs" />
     <Compile Include="Repositories\RepositorioProductos.cs" />
     <Compile Include="Repositories\RepositorioUsuarios.cs" />
     <Compile Include="UserControl1.cs">
@@ -124,6 +126,18 @@
     </Compile>
     <Compile Include="UsrCtrlDatos.Designer.cs">
       <DependentUpon>UsrCtrlDatos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsrCtrlDatosMateriaPrima.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UsrCtrlDatosMateriaPrima.Designer.cs">
+      <DependentUpon>UsrCtrlDatosMateriaPrima.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsrCtrlMateriaPrima.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UsrCtrlMateriaPrima.Designer.cs">
+      <DependentUpon>UsrCtrlMateriaPrima.cs</DependentUpon>
     </Compile>
     <Compile Include="UsrCtrlProductos.cs">
       <SubType>UserControl</SubType>
@@ -174,6 +188,12 @@
     <EmbeddedResource Include="UsrCtrlDatos.resx">
       <DependentUpon>UsrCtrlDatos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UsrCtrlDatosMateriaPrima.resx">
+      <DependentUpon>UsrCtrlDatosMateriaPrima.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsrCtrlMateriaPrima.resx">
+      <DependentUpon>UsrCtrlMateriaPrima.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UsrCtrlProductos.resx">
       <DependentUpon>UsrCtrlProductos.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,6 +240,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\manhole-cover-1211688.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transaccion1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transaccion2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MateriaPrima1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MateriaPrima2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Usuario1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Usuario2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usua.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hom1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hom2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Metal_casting-scaled-1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
