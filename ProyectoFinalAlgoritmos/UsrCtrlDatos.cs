@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoFinalAlgoritmos.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,7 @@ namespace ProyectoFinalAlgoritmos
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
-            
+
         }
 
         private int idProducto = 0;
@@ -41,7 +42,6 @@ namespace ProyectoFinalAlgoritmos
                 txtDescripcion.Text = producto.Descripcion;
                 txtPrecio.Text = producto.Precio.ToString();
                 txtCosto.Text = producto.Costo.ToString();
-                
 
                 this.idProducto = producto.Id;
 
@@ -54,7 +54,10 @@ namespace ProyectoFinalAlgoritmos
                     }
                 }
 
-            }            
+                var repo = new RepositorioTransacciones();
+                int cantidadActual = repo.ObtenerCantidadActual(producto.Id);
+                nudCantidad.Value = cantidadActual;
+            }
         }
         public void LimpiarCampos()
         {
@@ -62,8 +65,8 @@ namespace ProyectoFinalAlgoritmos
             txtId.Text = "";
             txtNombre.Text = "";
             txtDescripcion.Text = "";
-            txtPrecio.Text = "";            
-            picFoto.Image = null; 
+            txtPrecio.Text = "";
+            picFoto.Image = null;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -78,7 +81,11 @@ namespace ProyectoFinalAlgoritmos
                 MessageBox.Show("El precio del producto debe ser un número válido mayor o igual a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+            if (!int.TryParse(nudCantidad.Text, out int cantidad) || cantidad < 0)
+            {
+                MessageBox.Show("La cantidad del producto debe ser un número entero válido mayor o igual a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (!decimal.TryParse(txtCosto.Text, out decimal costo) || costo < 0)
             {
                 MessageBox.Show("El costo debe ser un número positivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -91,7 +98,7 @@ namespace ProyectoFinalAlgoritmos
             producto.Nombre = txtNombre.Text;
             producto.Descripcion = txtDescripcion.Text;
             producto.Precio = decimal.Parse(txtPrecio.Text);
-            producto.Costo = decimal.Parse(txtCosto.Text);            
+            producto.Costo = decimal.Parse(txtCosto.Text);
             producto.Fecha = DateTime.Now;
             producto.Foto = ConvertirImagenABytes(picFoto.Image);
 
@@ -104,11 +111,12 @@ namespace ProyectoFinalAlgoritmos
 
             var repo = new Repositories.RepositorioProductos();
 
-            if(this.idProducto == 0)
+            if (this.idProducto == 0)
             {
                 repo.AgregarProducto(producto);
             }
-            else { 
+            else
+            {
                 repo.ActualizarProducto(producto);
             }
 

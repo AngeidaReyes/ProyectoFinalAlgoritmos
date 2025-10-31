@@ -33,17 +33,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.SidePanel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.usrCtrlMateriaPrima1 = new ProyectoFinalAlgoritmos.UsrCtrlMateriaPrima();
-            this.usrCrtlUsuarios1 = new ProyectoFinalAlgoritmos.UsrCrtlUsuarios();
-            this.usrCtrlProductos1 = new ProyectoFinalAlgoritmos.UsrCtrlProductos();
-            this.userCtrlCatalogo1 = new ProyectoFinalAlgoritmos.UserCtrlCatalogo();
-            this.userControl11 = new ProyectoFinalAlgoritmos.UserControl1();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.btnMatePrima = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnTransacciones = new System.Windows.Forms.Button();
             this.btnInformacion = new System.Windows.Forms.Button();
             this.btnProducto = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
@@ -53,6 +48,12 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.usrCtrlMateriaPrima1 = new ProyectoFinalAlgoritmos.UsrCtrlMateriaPrima();
+            this.usrCrtlUsuarios1 = new ProyectoFinalAlgoritmos.UsrCrtlUsuarios();
+            this.usrCtrlProductos1 = new ProyectoFinalAlgoritmos.UsrCtrlProductos();
+            this.userCtrlCatalogo1 = new ProyectoFinalAlgoritmos.UserCtrlCatalogo();
+            this.userControl11 = new ProyectoFinalAlgoritmos.UserControl1();
+            this.usrCrtlTransacciones1 = new ProyectoFinalAlgoritmos.UsrCrtlTransacciones();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -76,7 +77,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Maroon;
             this.panel1.Controls.Add(this.btnMatePrima);
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.btnTransacciones);
             this.panel1.Controls.Add(this.SidePanel);
             this.panel1.Controls.Add(this.btnInformacion);
             this.panel1.Controls.Add(this.btnProducto);
@@ -105,49 +106,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(166, 200);
             this.panel3.TabIndex = 15;
-            // 
-            // usrCtrlMateriaPrima1
-            // 
-            this.usrCtrlMateriaPrima1.Location = new System.Drawing.Point(257, 38);
-            this.usrCtrlMateriaPrima1.Name = "usrCtrlMateriaPrima1";
-            this.usrCtrlMateriaPrima1.Size = new System.Drawing.Size(1115, 647);
-            this.usrCtrlMateriaPrima1.TabIndex = 26;
-            // 
-            // usrCrtlUsuarios1
-            // 
-            this.usrCrtlUsuarios1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.usrCrtlUsuarios1.Location = new System.Drawing.Point(257, 40);
-            this.usrCrtlUsuarios1.Name = "usrCrtlUsuarios1";
-            this.usrCrtlUsuarios1.Size = new System.Drawing.Size(1115, 574);
-            this.usrCrtlUsuarios1.TabIndex = 25;
-            this.usrCrtlUsuarios1.Load += new System.EventHandler(this.usrCrtlUsuarios1_Load);
-            // 
-            // usrCtrlProductos1
-            // 
-            this.usrCtrlProductos1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.usrCtrlProductos1.Location = new System.Drawing.Point(257, 40);
-            this.usrCtrlProductos1.Name = "usrCtrlProductos1";
-            this.usrCtrlProductos1.Size = new System.Drawing.Size(1115, 574);
-            this.usrCtrlProductos1.TabIndex = 24;
-            // 
-            // userCtrlCatalogo1
-            // 
-            this.userCtrlCatalogo1.AutoScroll = true;
-            this.userCtrlCatalogo1.BackColor = System.Drawing.SystemColors.Control;
-            this.userCtrlCatalogo1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userCtrlCatalogo1.Location = new System.Drawing.Point(257, 40);
-            this.userCtrlCatalogo1.Name = "userCtrlCatalogo1";
-            this.userCtrlCatalogo1.Size = new System.Drawing.Size(1115, 574);
-            this.userCtrlCatalogo1.TabIndex = 23;
-            // 
-            // userControl11
-            // 
-            this.userControl11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.userControl11.AutoSize = true;
-            this.userControl11.Location = new System.Drawing.Point(257, 248);
-            this.userControl11.Name = "userControl11";
-            this.userControl11.Size = new System.Drawing.Size(1115, 406);
-            this.userControl11.TabIndex = 22;
             // 
             // button2
             // 
@@ -233,21 +191,22 @@
             this.btnMatePrima.UseVisualStyleBackColor = true;
             this.btnMatePrima.Click += new System.EventHandler(this.button4_Click_1);
             // 
-            // button3
+            // btnTransacciones
             // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Image = global::ProyectoFinalAlgoritmos.Properties.Resources.transaccion2;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(18, 303);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(236, 65);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Transacciones";
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnTransacciones.FlatAppearance.BorderSize = 0;
+            this.btnTransacciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTransacciones.Font = new System.Drawing.Font("Century", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTransacciones.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnTransacciones.Image = global::ProyectoFinalAlgoritmos.Properties.Resources.transaccion2;
+            this.btnTransacciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTransacciones.Location = new System.Drawing.Point(18, 303);
+            this.btnTransacciones.Name = "btnTransacciones";
+            this.btnTransacciones.Size = new System.Drawing.Size(236, 65);
+            this.btnTransacciones.TabIndex = 8;
+            this.btnTransacciones.Text = "Transacciones";
+            this.btnTransacciones.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTransacciones.UseVisualStyleBackColor = true;
+            this.btnTransacciones.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // btnInformacion
             // 
@@ -391,12 +350,64 @@
             this.button7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button7.UseVisualStyleBackColor = true;
             // 
+            // usrCtrlMateriaPrima1
+            // 
+            this.usrCtrlMateriaPrima1.Location = new System.Drawing.Point(257, 38);
+            this.usrCtrlMateriaPrima1.Name = "usrCtrlMateriaPrima1";
+            this.usrCtrlMateriaPrima1.Size = new System.Drawing.Size(1115, 647);
+            this.usrCtrlMateriaPrima1.TabIndex = 26;
+            // 
+            // usrCrtlUsuarios1
+            // 
+            this.usrCrtlUsuarios1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.usrCrtlUsuarios1.Location = new System.Drawing.Point(257, 40);
+            this.usrCrtlUsuarios1.Name = "usrCrtlUsuarios1";
+            this.usrCrtlUsuarios1.Size = new System.Drawing.Size(1115, 574);
+            this.usrCrtlUsuarios1.TabIndex = 25;
+            this.usrCrtlUsuarios1.Load += new System.EventHandler(this.usrCrtlUsuarios1_Load);
+            // 
+            // usrCtrlProductos1
+            // 
+            this.usrCtrlProductos1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.usrCtrlProductos1.Location = new System.Drawing.Point(257, 40);
+            this.usrCtrlProductos1.Name = "usrCtrlProductos1";
+            this.usrCtrlProductos1.Size = new System.Drawing.Size(1115, 574);
+            this.usrCtrlProductos1.TabIndex = 24;
+            // 
+            // userCtrlCatalogo1
+            // 
+            this.userCtrlCatalogo1.AutoScroll = true;
+            this.userCtrlCatalogo1.BackColor = System.Drawing.SystemColors.Control;
+            this.userCtrlCatalogo1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userCtrlCatalogo1.Location = new System.Drawing.Point(257, 40);
+            this.userCtrlCatalogo1.Name = "userCtrlCatalogo1";
+            this.userCtrlCatalogo1.Size = new System.Drawing.Size(1115, 574);
+            this.userCtrlCatalogo1.TabIndex = 23;
+            // 
+            // userControl11
+            // 
+            this.userControl11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.userControl11.AutoSize = true;
+            this.userControl11.Location = new System.Drawing.Point(257, 248);
+            this.userControl11.Name = "userControl11";
+            this.userControl11.Size = new System.Drawing.Size(1115, 406);
+            this.userControl11.TabIndex = 22;
+            // 
+            // usrCrtlTransacciones1
+            // 
+            this.usrCrtlTransacciones1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.usrCrtlTransacciones1.Location = new System.Drawing.Point(257, 40);
+            this.usrCrtlTransacciones1.Name = "usrCrtlTransacciones1";
+            this.usrCrtlTransacciones1.Size = new System.Drawing.Size(1115, 574);
+            this.usrCrtlTransacciones1.TabIndex = 27;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1372, 654);
+            this.Controls.Add(this.usrCrtlTransacciones1);
             this.Controls.Add(this.usrCtrlMateriaPrima1);
             this.Controls.Add(this.usrCrtlUsuarios1);
             this.Controls.Add(this.usrCtrlProductos1);
@@ -447,8 +458,9 @@
         private UsrCtrlProductos usrCtrlProductos1;
         private UsrCrtlUsuarios usrCrtlUsuarios1;
         private System.Windows.Forms.Button btnMatePrima;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnTransacciones;
         private UsrCtrlMateriaPrima usrCtrlMateriaPrima1;
+        private UsrCrtlTransacciones usrCrtlTransacciones1;
     }
 }
 

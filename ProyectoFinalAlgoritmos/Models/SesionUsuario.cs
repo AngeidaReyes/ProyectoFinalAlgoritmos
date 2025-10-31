@@ -8,6 +8,7 @@ namespace ProyectoFinalAlgoritmos.Models
 {
     public static class SesionUsuario
     {
+        public static int IdUsuario { get; set; }
         public static string Nombre { get; set; }
         public static string TipoUsuario { get; set; }
         public static string Usuario { get; set; }

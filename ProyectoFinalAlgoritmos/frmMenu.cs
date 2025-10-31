@@ -24,6 +24,7 @@ namespace ProyectoFinalAlgoritmos
             usrCtrlProductos1.Hide();
             usrCrtlUsuarios1.Hide();
             usrCtrlMateriaPrima1.Hide();
+            usrCrtlTransacciones1.Hide();
             LLenarProductos();
             Permisos();
 
@@ -151,6 +152,19 @@ namespace ProyectoFinalAlgoritmos
             userCtrlCatalogo1.Hide();
             usrCtrlMateriaPrima1.Show();
             usrCtrlMateriaPrima1.BringToFront();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            SidePanel.Height = btnTransacciones.Height;
+            SidePanel.Top = btnTransacciones.Top;
+
+            userCtrlCatalogo1.Hide();
+            usrCtrlMateriaPrima1.Hide();
+
+            usrCrtlTransacciones1.BringToFront();
+            usrCrtlTransacciones1.Show();
+            
         }
     }
 }

@@ -30,7 +30,6 @@
         {
             this.txtId = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtCantidad = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,7 +45,9 @@
             this.picFoto = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtCosto = new System.Windows.Forms.TextBox();
+            this.nudCantidad = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             this.SuspendLayout();
             // 
             // txtId
@@ -64,14 +65,6 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(450, 26);
             this.txtNombre.TabIndex = 1;
-            // 
-            // txtCantidad
-            // 
-            this.txtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad.Location = new System.Drawing.Point(413, 224);
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(164, 26);
-            this.txtCantidad.TabIndex = 2;
             // 
             // txtPrecio
             // 
@@ -217,13 +210,23 @@
             this.txtCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCosto.Location = new System.Drawing.Point(413, 392);
             this.txtCosto.Name = "txtCosto";
+            this.txtCosto.ReadOnly = true;
             this.txtCosto.Size = new System.Drawing.Size(164, 26);
             this.txtCosto.TabIndex = 17;
+            // 
+            // nudCantidad
+            // 
+            this.nudCantidad.Location = new System.Drawing.Point(413, 224);
+            this.nudCantidad.Name = "nudCantidad";
+            this.nudCantidad.ReadOnly = true;
+            this.nudCantidad.Size = new System.Drawing.Size(164, 26);
+            this.nudCantidad.TabIndex = 19;
             // 
             // UsrCtrlDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.nudCantidad);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtCosto);
             this.Controls.Add(this.label6);
@@ -239,12 +242,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtPrecio);
-            this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtId);
             this.Name = "UsrCtrlDatos";
             this.Size = new System.Drawing.Size(1115, 578);
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,7 +257,6 @@
 
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label1;
@@ -270,5 +272,6 @@
         public System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtCosto;
+        private System.Windows.Forms.NumericUpDown nudCantidad;
     }
 }
