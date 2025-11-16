@@ -33,6 +33,20 @@ namespace ProyectoFinalAlgoritmos
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
 
+            ConectarControles();
+
+        }
+
+        private void ConectarControles()
+        {
+            // Pasar referencia del control de materia prima al de productos
+            usrCtrlProductos1.ControlMateriaPrima = usrCtrlMateriaPrima1;
+
+            // Suscribir al evento de costo
+            usrCtrlProductos1.SuscribirACambiosDeCosto();
+
+            // Opcional: Forzar actualización inicial
+            usrCtrlMateriaPrima1.LeerMateriaPrima(); // Dispara el evento
         }
 
         public void Permisos()
@@ -87,6 +101,8 @@ namespace ProyectoFinalAlgoritmos
             userCtrlCatalogo1.Hide();
             usrCtrlProductos1.Show();
             usrCtrlProductos1.BringToFront();
+
+            ConectarControles();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -152,6 +168,8 @@ namespace ProyectoFinalAlgoritmos
             userCtrlCatalogo1.Hide();
             usrCtrlMateriaPrima1.Show();
             usrCtrlMateriaPrima1.BringToFront();
+
+            usrCtrlMateriaPrima1.LeerMateriaPrima();
         }
 
         private void button3_Click_1(object sender, EventArgs e)

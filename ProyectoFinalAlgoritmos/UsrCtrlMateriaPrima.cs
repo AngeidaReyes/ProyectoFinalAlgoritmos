@@ -15,6 +15,7 @@ namespace ProyectoFinalAlgoritmos
 {
     public partial class UsrCtrlMateriaPrima : UserControl
     {
+        public event Action<decimal> CostoTotalMateriaPrimaActualizado;
         public UsrCtrlMateriaPrima()
         {
             InitializeComponent();
@@ -22,6 +23,7 @@ namespace ProyectoFinalAlgoritmos
             LeerMateriaPrima();
             Permisos();
             ActualizarTotalInventario();
+           
 
 
 
@@ -30,7 +32,7 @@ namespace ProyectoFinalAlgoritmos
             usrCtrlDatosMateriaPrima1.MateriaPrimaGuardado += (s, e) => LeerMateriaPrima();
 
         }
-        private void LeerMateriaPrima()
+        public void LeerMateriaPrima()
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("ID");
@@ -61,6 +63,8 @@ namespace ProyectoFinalAlgoritmos
             this.dgvMatePrima.DataSource = dt;
             ActualizarTotalInventario();
 
+            DispararCostoActualizado();
+
         }
         private void ActualizarTotalInventario()
         {
@@ -72,6 +76,16 @@ namespace ProyectoFinalAlgoritmos
             lblTotalInventario.Text = $"Valor total en inventario: {totalInventario:C}";
             lblTotalInventario.Font = new Font(lblTotalInventario.Font, FontStyle.Bold);
             lblTotalInventario.ForeColor = totalInventario > 0 ? Color.DarkGreen : Color.Gray;
+
+            DispararCostoActualizado();
+        }
+
+        private void DispararCostoActualizado()
+        {
+            var repo = new RepositorioMateriaPrima();
+            var materiaPrima = repo.ObtenerMateriaPrima();
+            decimal costoTotal = materiaPrima.Sum(m => m.Precio * m.Cantidad);
+            CostoTotalMateriaPrimaActualizado?.Invoke(costoTotal);
         }
 
         public void Permisos()

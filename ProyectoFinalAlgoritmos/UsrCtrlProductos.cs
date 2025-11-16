@@ -14,6 +14,8 @@ namespace ProyectoFinalAlgoritmos
 {
     public partial class UsrCtrlProductos : UserControl
     {
+        public UsrCtrlMateriaPrima ControlMateriaPrima { get; set; }
+        private decimal costoTotalMateriaPrima = 0; 
         public UsrCtrlProductos()
         {
             InitializeComponent();
@@ -31,8 +33,8 @@ namespace ProyectoFinalAlgoritmos
             dt.Columns.Add("ID");
             dt.Columns.Add("Nombre");
             dt.Columns.Add("Descripción");
-            dt.Columns.Add("Precio");
-            dt.Columns.Add("Costo");            
+            dt.Columns.Add("Costo Real");
+            dt.Columns.Add("Precio Venta");
             dt.Columns.Add("Fecha");
 
             var repo = new RepositorioProductos();
@@ -44,8 +46,13 @@ namespace ProyectoFinalAlgoritmos
                 row["ID"] = producto.Id;
                 row["Nombre"] = producto.Nombre;
                 row["Descripción"] = producto.Descripcion;
-                row["Precio"] = producto.Precio.ToString("C");
-                row["Costo"] = producto.Costo.ToString("C");                             
+
+                // Cálculo según modalidad de la empresa
+                decimal costoReal = repo.CalcularCostoReal(producto.Id);
+                decimal precioVenta = costoReal * 1.5m;
+
+                row["Costo Real"] = costoReal.ToString("C");
+                row["Precio Venta"] = precioVenta.ToString("C");
                 row["Fecha"] = producto.Fecha;
 
                 dt.Rows.Add(row);
@@ -118,25 +125,49 @@ namespace ProyectoFinalAlgoritmos
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            var valor = dgvProductos.SelectedRows[0].Cells[0].Value.ToString();
-            if (valor == null || valor.Length == 0)
             {
-                //MessageBox.Show("Seleccione un producto para editar.");
-                return;
+                if (dgvProductos.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Seleccione un producto para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                var fila = dgvProductos.SelectedRows[0];
+                var celdaId = fila.Cells["Id"].Value; // ← Usa el nombre real de la columna que contiene el ID
+
+                if (celdaId == null || !int.TryParse(celdaId.ToString(), out int id))
+                {
+                    MessageBox.Show("No se pudo obtener el ID del producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea eliminar este producto?", "Eliminar Producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+
+                var repo = new RepositorioProductos();
+                repo.EliminarProducto(id);
+
+                LeerProductos();
             }
-
-            int id = int.Parse(valor);
-
-            DialogResult dialogResult = MessageBox.Show("Esta seguro de que desea eliminar este producto?", "Eliminar Producto", MessageBoxButtons.YesNo);
-
-            if (dialogResult == DialogResult.No) { 
-                return;
+        }
+        // Método para suscribirse al evento del control de materia prima
+        public void SuscribirACambiosDeCosto()
+        {
+            if (ControlMateriaPrima != null)
+            {
+                ControlMateriaPrima.CostoTotalMateriaPrimaActualizado += OnCostoMateriaActualizado;
             }
+        }
 
-            var repo = new RepositorioProductos();
-            repo.EliminarProducto(id);
-
-            LeerProductos();
+        // Se ejecuta cuando llega el nuevo costo
+        private void OnCostoMateriaActualizado(decimal nuevoCosto)
+        {
+            costoTotalMateriaPrima = nuevoCosto;
+            LeerProductos(); // Refresca la grilla con el nuevo costo
         }
     }
 }

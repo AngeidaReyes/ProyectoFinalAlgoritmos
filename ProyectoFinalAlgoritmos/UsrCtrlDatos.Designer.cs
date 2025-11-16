@@ -46,6 +46,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtCosto = new System.Windows.Forms.TextBox();
             this.nudCantidad = new System.Windows.Forms.NumericUpDown();
+            this.btnReceta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             this.SuspendLayout();
@@ -222,10 +223,24 @@
             this.nudCantidad.Size = new System.Drawing.Size(164, 26);
             this.nudCantidad.TabIndex = 19;
             // 
+            // btnReceta
+            // 
+            this.btnReceta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(101)))), ((int)(((byte)(57)))));
+            this.btnReceta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReceta.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnReceta.Location = new System.Drawing.Point(634, 487);
+            this.btnReceta.Name = "btnReceta";
+            this.btnReceta.Size = new System.Drawing.Size(189, 80);
+            this.btnReceta.TabIndex = 21;
+            this.btnReceta.Text = "Receta";
+            this.btnReceta.UseVisualStyleBackColor = false;
+            this.btnReceta.Click += new System.EventHandler(this.btnReceta_Click);
+            // 
             // UsrCtrlDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnReceta);
             this.Controls.Add(this.nudCantidad);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtCosto);
@@ -273,5 +288,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtCosto;
         private System.Windows.Forms.NumericUpDown nudCantidad;
+        private System.Windows.Forms.Button btnReceta;
     }
 }

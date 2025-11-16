@@ -14,6 +14,7 @@ namespace ProyectoFinalAlgoritmos
 {
     public partial class UsrCtrlDatos : UserControl
     {
+        public event EventHandler RecetaActualizada;
         public event EventHandler ProductoGuardado;
 
         public UsrCtrlDatos()
@@ -76,29 +77,26 @@ namespace ProyectoFinalAlgoritmos
                 MessageBox.Show("El nombre del producto es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!decimal.TryParse(txtPrecio.Text, out decimal precio) || precio < 0)
-            {
-                MessageBox.Show("El precio del producto debe ser un número válido mayor o igual a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             if (!int.TryParse(nudCantidad.Text, out int cantidad) || cantidad < 0)
             {
                 MessageBox.Show("La cantidad del producto debe ser un número entero válido mayor o igual a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!decimal.TryParse(txtCosto.Text, out decimal costo) || costo < 0)
-            {
-                MessageBox.Show("El costo debe ser un número positivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
+            // 🔹 Calcular costo automáticamente desde receta
+            var repo = new RepositorioProductos();
+            decimal costoReal = repo.CalcularCostoReal(idProducto);
+            decimal precioVenta = costoReal * 1.5m;
+
+            txtCosto.Text = costoReal.ToString("F2");
+            txtPrecio.Text = precioVenta.ToString("F2");
 
             Productos producto = new Productos();
             producto.Id = this.idProducto;
             producto.Nombre = txtNombre.Text;
             producto.Descripcion = txtDescripcion.Text;
-            producto.Precio = decimal.Parse(txtPrecio.Text);
-            producto.Costo = decimal.Parse(txtCosto.Text);
+            producto.Costo = costoReal;
+            producto.Precio = precioVenta;
             producto.Fecha = DateTime.Now;
             producto.Foto = ConvertirImagenABytes(picFoto.Image);
 
@@ -109,8 +107,6 @@ namespace ProyectoFinalAlgoritmos
                 return;
             }
 
-            var repo = new Repositories.RepositorioProductos();
-
             if (this.idProducto == 0)
             {
                 repo.AgregarProducto(producto);
@@ -119,6 +115,9 @@ namespace ProyectoFinalAlgoritmos
             {
                 repo.ActualizarProducto(producto);
             }
+
+            // 🔹 Actualiza costo en BD
+            repo.ActualizarCostoProducto(producto.Id, costoReal);
 
             ProductoGuardado?.Invoke(this, EventArgs.Empty);
 
@@ -165,5 +164,43 @@ namespace ProyectoFinalAlgoritmos
             }
         }
 
+        private void btnReceta_Click(object sender, EventArgs e)
+        {
+            if (idProducto == 0)
+            {
+                MessageBox.Show("Guarde el producto primero.");
+                return;
+            }
+
+            var frm = new FrmRecetaProducto(idProducto);
+
+            // Escuchar cuando se guarda la receta
+            frm.RecetaGuardada += (s, ev) =>
+            {
+                ActualizarCostoYPrecioDesdeReceta();
+            };
+
+            frm.ShowDialog();
+
+            // También recalcular al cerrar, por si hubo cambios sin guardar explícitamente
+            ActualizarCostoYPrecioDesdeReceta();
+
+        }
+
+        private void ActualizarCostoYPrecioDesdeReceta()
+        {
+            var repo = new RepositorioProductos();
+            decimal costo = repo.CalcularCostoReal(idProducto);
+            txtCosto.Text = costo.ToString("F2");
+            repo.ActualizarCostoProducto(idProducto, costo);
+
+            decimal precioVenta = costo * 1.5m;
+            txtPrecio.Text = precioVenta.ToString("F2");
+        }
+
+        public void ActualizarCosto(decimal nuevoCosto)
+        {
+            txtCosto.Text = nuevoCosto.ToString("C"); // o lblCosto.Text si usas Label
+        }
     }
 }

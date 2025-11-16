@@ -180,5 +180,79 @@ namespace ProyectoFinalAlgoritmos.Repositories
                 Console.WriteLine("Error al eliminar producto: " + ex.Message);                
             }
         }
+
+        public decimal CalcularCostoReal(int productoId)
+        {
+            decimal costoTotal = 0;
+
+            using (var conexion = new SqlConnection(connectionString))
+            {
+                conexion.Open();
+                var cmd = new SqlCommand(@"
+            SELECT 
+                rp.CantidadRequerida,
+                mp.precioUnitario
+            FROM RecetaProducto rp
+            INNER JOIN MateriaPrima mp ON rp.MateriaPrimaId = mp.id_materiaPrima
+            WHERE rp.ProductoId = @ProductoId", conexion);
+
+                cmd.Parameters.AddWithValue("@ProductoId", productoId);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        decimal cantidad = reader.GetDecimal(0);
+                        decimal precio = reader.GetDecimal(1);
+                        costoTotal += cantidad * precio;
+                    }
+                }
+            }
+
+            return costoTotal;
+        }
+
+
+        public void ActualizarCostoProducto(int productoId, decimal nuevoCosto)
+        {
+            using (var conexion = new SqlConnection(connectionString))
+            {
+                conexion.Open();
+                var cmd = new SqlCommand("UPDATE Productos SET costo_producto = @Costo WHERE id_producto = @Id", conexion);
+                cmd.Parameters.AddWithValue("@Id", productoId);
+                cmd.Parameters.AddWithValue("@Costo", nuevoCosto);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        // Actualiza precio automáticamente
+        public void ActualizarPrecioProducto(int productoId, decimal nuevoPrecio)
+        {
+            using (var conexion = new SqlConnection(connectionString))
+            {
+                conexion.Open();
+                var cmd = new SqlCommand("UPDATE Productos SET precio_producto = @Precio WHERE id_producto = @Id", conexion);
+                cmd.Parameters.AddWithValue("@Id", productoId);
+                cmd.Parameters.AddWithValue("@Precio", nuevoPrecio);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        // Actualiza costo y precio juntos
+        public void ActualizarCostoYPrecio(int productoId)
+        {
+            decimal costo = CalcularCostoReal(productoId);
+            decimal precioVenta = costo * 1.5m;
+
+            using (var conexion = new SqlConnection(connectionString))
+            {
+                conexion.Open();
+                var cmd = new SqlCommand("UPDATE Productos SET costo_producto = @Costo, precio_producto = @Precio WHERE id_producto = @Id", conexion);
+                cmd.Parameters.AddWithValue("@Id", productoId);
+                cmd.Parameters.AddWithValue("@Costo", costo);
+                cmd.Parameters.AddWithValue("@Precio", precioVenta);
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }
