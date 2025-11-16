@@ -25,9 +25,6 @@ namespace ProyectoFinalAlgoritmos
             ActualizarTotalInventario();
            
 
-
-
-
             usrCtrlDatosMateriaPrima1.Hide();
             usrCtrlDatosMateriaPrima1.MateriaPrimaGuardado += (s, e) => LeerMateriaPrima();
 
@@ -39,7 +36,6 @@ namespace ProyectoFinalAlgoritmos
             dt.Columns.Add("Nombre");
             dt.Columns.Add("Unidad");
             dt.Columns.Add("Precio");
-            dt.Columns.Add("Cantidad");
             dt.Columns.Add("Minimo");
             dt.Columns.Add("Fecha");
 
@@ -53,7 +49,6 @@ namespace ProyectoFinalAlgoritmos
                 row["Nombre"] = materiaprima.Nombre;
                 row["Unidad"] = materiaprima.Unidad;
                 row["Precio"] = materiaprima.Precio.ToString("C");
-                row["Cantidad"] = materiaprima.Cantidad;
                 row["Minimo"] = materiaprima.Minimo;
                 row["Fecha"] = materiaprima.Fecha.ToShortDateString();
 

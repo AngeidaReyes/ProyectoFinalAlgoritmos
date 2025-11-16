@@ -136,6 +136,7 @@
     <Compile Include="Models\Receta.cs" />
     <Compile Include="Models\SesionUsuario.cs" />
     <Compile Include="Models\Transacciones.cs" />
+    <Compile Include="Models\TransaccionesMP.cs" />
     <Compile Include="Models\Usuarios.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="Repositories\RepositorioProductos.cs" />
     <Compile Include="Repositories\RepositorioReceta.cs" />
     <Compile Include="Repositories\RepositorioTransacciones.cs" />
+    <Compile Include="Repositories\RepositorioTransaccionesMP.cs" />
     <Compile Include="Repositories\RepositorioUsuarios.cs" />
     <Compile Include="UserControl1.cs">
       <SubType>UserControl</SubType>
@@ -204,6 +206,12 @@
     <Compile Include="UsrCtrlProductos.Designer.cs">
       <DependentUpon>UsrCtrlProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="UsrCtrlTransaccionesMP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UsrCtrlTransaccionesMP.Designer.cs">
+      <DependentUpon>UsrCtrlTransaccionesMP.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Botones.resx">
       <DependentUpon>Botones.cs</DependentUpon>
     </EmbeddedResource>
@@ -264,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UsrCtrlProductos.resx">
       <DependentUpon>UsrCtrlProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsrCtrlTransaccionesMP.resx">
+      <DependentUpon>UsrCtrlTransaccionesMP.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="packages.config" />

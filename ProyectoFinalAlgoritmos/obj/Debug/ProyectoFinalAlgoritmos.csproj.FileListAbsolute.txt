@@ -101,3 +101,5 @@ C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\Proyec
 C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.UsrCtrlDatosTransacciones.resources
 C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.csproj.CopyComplete
 C:\Users\Aniana\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.FrmRecetaProducto.resources
+C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.FrmRecetaProducto.resources
+C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\obj\Debug\ProyectoFinalAlgoritmos.UsrCtrlTransaccionesMP.resources

@@ -1,4 +1,5 @@
 ﻿using ProyectoFinalAlgoritmos.Models;
+using ProyectoFinalAlgoritmos.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,14 +33,16 @@ namespace ProyectoFinalAlgoritmos
                 txtNombre.Text = materiaprima.Nombre;
                 cmbBoxUnidad.Text = materiaprima.Unidad;
                 txtPrecio.Text = materiaprima.Precio.ToString();
-                nudCantidad.Text = materiaprima.Cantidad.ToString();
                 nudMinimo.Text = materiaprima.Minimo.ToString();
                 dtTimeFecha.Text = materiaprima.Fecha.ToString();
-
 
                 this.idMateriaPrima = materiaprima.Id;
 
             }
+
+            var repo = new RepositorioTransaccionesMP();
+            materiaprima.Cantidad = repo.ObtenerCantidadActual(materiaprima.Id);
+            nudCantidad.Value = materiaprima.Cantidad;
         }
         public void LimpiarCampos()
         {

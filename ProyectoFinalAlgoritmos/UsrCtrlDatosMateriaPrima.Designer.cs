@@ -113,6 +113,7 @@
             0,
             0});
             this.nudCantidad.Name = "nudCantidad";
+            this.nudCantidad.ReadOnly = true;
             this.nudCantidad.Size = new System.Drawing.Size(164, 26);
             this.nudCantidad.TabIndex = 52;
             // 

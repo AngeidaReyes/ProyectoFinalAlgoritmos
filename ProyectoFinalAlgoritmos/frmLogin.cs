@@ -94,7 +94,7 @@ namespace ProyectoFinalAlgoritmos
             try
             {
                 conexion.Open();
-                SqlCommand cmd = new SqlCommand("SELECT nombre, tipo_usuario FROM Usuarios WHERE usuario=@usuario AND contrasena=@contrasena", conexion);
+                SqlCommand cmd = new SqlCommand("SELECT id_usuario, nombre, tipo_usuario FROM Usuarios WHERE usuario=@usuario AND contrasena=@contrasena", conexion);
                 cmd.Parameters.AddWithValue("@usuario", usuario);
                 cmd.Parameters.AddWithValue("@contrasena", contrasena);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -103,7 +103,7 @@ namespace ProyectoFinalAlgoritmos
 
                 if (dt.Rows.Count > 0)
                 {
-                    // Guardar datos del usuario en la sesión
+                    SesionUsuario.IdUsuario = (int)dt.Rows[0]["id_usuario"];
                     SesionUsuario.Nombre = dt.Rows[0]["nombre"].ToString();
                     SesionUsuario.TipoUsuario = dt.Rows[0]["tipo_usuario"].ToString();
                     SesionUsuario.Usuario = usuario;

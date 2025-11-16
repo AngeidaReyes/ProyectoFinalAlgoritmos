@@ -23,7 +23,7 @@ namespace ProyectoFinalAlgoritmos.Repositories
                 {
                     conexion.Open();
                     var comando = new SqlCommand(@"
-                SELECT id_materiaPrima, nombre_materiaPrima,unidad_materiaPrima, precioUnitario, cantidadDisponible, 
+                SELECT id_materiaPrima, nombre_materiaPrima,unidad_materiaPrima, precioUnitario,
                        minimoPermitido, fechaIngreso 
                 FROM MateriaPrima 
                 ORDER BY id_materiaPrima DESC", conexion);
@@ -38,9 +38,8 @@ namespace ProyectoFinalAlgoritmos.Repositories
                                 Nombre = lector.GetString(1),
                                 Unidad = lector.GetString(2),
                                 Precio = lector.GetDecimal(3),
-                                Cantidad = lector.GetDecimal(4),
-                                Minimo = lector.GetDecimal(5),
-                                Fecha = lector.GetDateTime(6),
+                                Minimo = lector.GetDecimal(4),
+                                Fecha = lector.GetDateTime(5),
 
                             });
                         }
@@ -60,7 +59,7 @@ namespace ProyectoFinalAlgoritmos.Repositories
             using (var conexion = new SqlConnection(connectionString))
             {
                 conexion.Open();
-                var comando = new SqlCommand("SELECT id_materiaPrima, nombre_materiaPrima,unidad_materiaPrima, precioUnitario, cantidadDisponible, minimoPermitido, FechaIngreso FROM MateriaPrima WHERE id_materiaPrima = @id", conexion);
+                var comando = new SqlCommand("SELECT id_materiaPrima, nombre_materiaPrima,unidad_materiaPrima, precioUnitario, minimoPermitido, FechaIngreso FROM MateriaPrima WHERE id_materiaPrima = @id", conexion);
                 comando.Parameters.AddWithValue("@id", id);
 
                 using (var lector = comando.ExecuteReader())
@@ -73,9 +72,8 @@ namespace ProyectoFinalAlgoritmos.Repositories
                             Nombre = lector.GetString(1),
                             Unidad = lector.GetString(2),
                             Precio = lector.GetDecimal(3),
-                            Cantidad = lector.GetDecimal(4),
-                            Minimo = lector.GetDecimal(5),
-                            Fecha = lector.GetDateTime(6),
+                            Minimo = lector.GetDecimal(4),
+                            Fecha = lector.GetDateTime(5),
                         };
                     }
                 }
@@ -90,11 +88,10 @@ namespace ProyectoFinalAlgoritmos.Repositories
                 using (var conexion = new System.Data.SqlClient.SqlConnection(connectionString))
                 {
                     conexion.Open();
-                    var comando = new System.Data.SqlClient.SqlCommand("INSERT INTO MateriaPrima (nombre_materiaPrima, unidad_materiaPrima, precioUnitario, cantidadDisponible, minimoPermitido, FechaIngreso) VALUES (@Nombre, @Unidad, @Precio, @Cantidad,@Minimo, @Fecha)", conexion);
+                    var comando = new System.Data.SqlClient.SqlCommand("INSERT INTO MateriaPrima (nombre_materiaPrima, unidad_materiaPrima, precioUnitario, minimoPermitido, FechaIngreso) VALUES (@Nombre, @Unidad, @Precio, @Minimo, @Fecha)", conexion);
                     comando.Parameters.AddWithValue("@Nombre", materiaPrima.Nombre);
                     comando.Parameters.AddWithValue("@Unidad", materiaPrima.Unidad);
                     comando.Parameters.AddWithValue("@Precio", materiaPrima.Precio);
-                    comando.Parameters.AddWithValue("@Cantidad", materiaPrima.Cantidad);
                     comando.Parameters.AddWithValue("@Minimo", materiaPrima.Minimo);
                     comando.Parameters.AddWithValue("@Fecha", materiaPrima.Fecha);
 
@@ -116,12 +113,11 @@ namespace ProyectoFinalAlgoritmos.Repositories
                 using (var conexion = new System.Data.SqlClient.SqlConnection(connectionString))
                 {
                     conexion.Open();
-                    var comando = new System.Data.SqlClient.SqlCommand("UPDATE MateriaPrima SET nombre_materiaPrima = @Nombre, unidad_materiaPrima = @Unidad, precioUnitario = @Precio, cantidadDisponible = @Cantidad, minimoPermitido = @Minimo,FechaIngreso= @Fecha WHERE id_materiaPrima = @Id", conexion);
+                    var comando = new System.Data.SqlClient.SqlCommand("UPDATE MateriaPrima SET nombre_materiaPrima = @Nombre, unidad_materiaPrima = @Unidad, precioUnitario = @Precio, minimoPermitido = @Minimo,FechaIngreso= @Fecha WHERE id_materiaPrima = @Id", conexion);
                     comando.Parameters.AddWithValue("@Id", materiaPrima.Id);
                     comando.Parameters.AddWithValue("@Nombre", materiaPrima.Nombre);
                     comando.Parameters.AddWithValue("@Unidad", materiaPrima.Unidad);
                     comando.Parameters.AddWithValue("@Precio", materiaPrima.Precio);
-                    comando.Parameters.AddWithValue("@Cantidad", materiaPrima.Cantidad);
                     comando.Parameters.AddWithValue("@Minimo", materiaPrima.Minimo);
                     comando.Parameters.AddWithValue("@Fecha", materiaPrima.Fecha);
                     comando.ExecuteNonQuery();
