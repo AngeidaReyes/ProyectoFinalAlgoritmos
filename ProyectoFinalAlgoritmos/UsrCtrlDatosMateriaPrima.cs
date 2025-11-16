@@ -37,7 +37,6 @@ namespace ProyectoFinalAlgoritmos
                 dtTimeFecha.Text = materiaprima.Fecha.ToString();
 
                 this.idMateriaPrima = materiaprima.Id;
-
             }
 
             var repo = new RepositorioTransaccionesMP();
@@ -54,9 +53,6 @@ namespace ProyectoFinalAlgoritmos
             nudCantidad.Text = "";
             nudMinimo.Text = "";
             dtTimeFecha.Text = "";
-
-
-
         }
 
         private void UsrCtrlDatosMateriaPrima_Load(object sender, EventArgs e)

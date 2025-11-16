@@ -22,12 +22,10 @@ namespace ProyectoFinalAlgoritmos
             dgvMatePrima.ReadOnly = true;
             LeerMateriaPrima();
             Permisos();
-            ActualizarTotalInventario();
-           
+            ActualizarTotalInventario();           
 
             usrCtrlDatosMateriaPrima1.Hide();
             usrCtrlDatosMateriaPrima1.MateriaPrimaGuardado += (s, e) => LeerMateriaPrima();
-
         }
         public void LeerMateriaPrima()
         {
@@ -36,19 +34,24 @@ namespace ProyectoFinalAlgoritmos
             dt.Columns.Add("Nombre");
             dt.Columns.Add("Unidad");
             dt.Columns.Add("Precio");
+            dt.Columns.Add("Cantidad");
             dt.Columns.Add("Minimo");
             dt.Columns.Add("Fecha");
 
             var repo = new RepositorioMateriaPrima();
             var materiaPrima = repo.ObtenerMateriaPrima();
 
+            var repoTran = new RepositorioTransaccionesMP();            
+       
             foreach (var materiaprima in materiaPrima)
             {
+                materiaprima.Cantidad = repoTran.ObtenerCantidadActual(materiaprima.Id);
                 var row = dt.NewRow();
                 row["ID"] = materiaprima.Id;
                 row["Nombre"] = materiaprima.Nombre;
                 row["Unidad"] = materiaprima.Unidad;
                 row["Precio"] = materiaprima.Precio.ToString("C");
+                row["Cantidad"] = materiaprima.Cantidad;
                 row["Minimo"] = materiaprima.Minimo;
                 row["Fecha"] = materiaprima.Fecha.ToShortDateString();
 
