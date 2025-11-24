@@ -41,10 +41,17 @@ namespace ProyectoFinalAlgoritmos
             panelResultados.Visible = false;
             txtBuscar.Text = "";
 
-            foreach (Control ctrl in this.Controls)
+            List<Control> controlesAEliminar = new List<Control>();
+            
+                foreach (Control ctrl in this.Controls)
             {
                 if (ctrl is Botones)
-                    ctrl.Visible = true;
+                    controlesAEliminar.Add(ctrl);
+            }
+            foreach (Control ctrl in controlesAEliminar)
+            {
+                this.Controls.Remove(ctrl);
+                ctrl.Dispose();
             }
 
             BDproductos obj = new BDproductos();
