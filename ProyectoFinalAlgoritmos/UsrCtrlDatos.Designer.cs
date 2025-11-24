@@ -72,6 +72,7 @@
             this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecio.Location = new System.Drawing.Point(413, 314);
             this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.ReadOnly = true;
             this.txtPrecio.Size = new System.Drawing.Size(164, 26);
             this.txtPrecio.TabIndex = 3;
             // 
@@ -217,6 +218,7 @@
             // 
             // nudCantidad
             // 
+            this.nudCantidad.Enabled = false;
             this.nudCantidad.Location = new System.Drawing.Point(413, 224);
             this.nudCantidad.Name = "nudCantidad";
             this.nudCantidad.ReadOnly = true;

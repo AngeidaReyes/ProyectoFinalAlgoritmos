@@ -69,6 +69,12 @@ namespace ProyectoFinalAlgoritmos
             var repo = new RepositorioMateriaPrima();
             var materiaPrima = repo.ObtenerMateriaPrima();
 
+            var repoMP = new RepositorioTransaccionesMP();
+            foreach (var materiaprima in materiaPrima)
+            {
+                materiaprima.Cantidad = repoMP.ObtenerCantidadActual(materiaprima.Id);
+            }
+
             decimal totalInventario = materiaPrima.Sum(m => m.Precio * m.Cantidad);
 
             lblTotalInventario.Text = $"Valor total en inventario: {totalInventario:C}";
