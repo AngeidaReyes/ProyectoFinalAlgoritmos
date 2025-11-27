@@ -23,7 +23,7 @@ namespace ProyectoFinalAlgoritmos
             usrCrtlDatosUsuario1.Hide();
             usrCrtlDatosUsuario1.Dock = DockStyle.Fill;
             usrCrtlDatosUsuario1.UsuarioGuardado += (s, e) => LeerUsuarios();
-        }       
+        }
         private void LeerUsuarios()
         {
             DataTable dt = new DataTable();
@@ -32,7 +32,7 @@ namespace ProyectoFinalAlgoritmos
             dt.Columns.Add("Usuario");
             dt.Columns.Add("Contraseña");
             dt.Columns.Add("Tipo de Usuario");
-            
+
             var repo = new Repositories.RepositorioUsuarios();
             var usuarios = repo.ObtenerUsuarios();
             foreach (var user in usuarios)
@@ -43,7 +43,7 @@ namespace ProyectoFinalAlgoritmos
                 row["Usuario"] = user.Usuario;
                 row["Contraseña"] = user.Contrasena;
                 row["Tipo de Usuario"] = user.TipoUsuario;
-                
+
                 dt.Rows.Add(row);
             }
             this.dgvUsuarios.DataSource = dt;
@@ -156,6 +156,6 @@ namespace ProyectoFinalAlgoritmos
                     e.CellStyle.ForeColor = Color.Black;
                 }
             }
-            }
+        }
     }
 }

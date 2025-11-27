@@ -42,13 +42,13 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnCargarImagen = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.picFoto = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtCosto = new System.Windows.Forms.TextBox();
             this.nudCantidad = new System.Windows.Forms.NumericUpDown();
             this.btnReceta = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
+            this.picFoto = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // txtId
@@ -189,15 +189,6 @@
             this.label6.TabIndex = 16;
             this.label6.Text = "Imagen del Producto";
             // 
-            // picFoto
-            // 
-            this.picFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picFoto.Location = new System.Drawing.Point(27, 143);
-            this.picFoto.Name = "picFoto";
-            this.picFoto.Size = new System.Drawing.Size(360, 281);
-            this.picFoto.TabIndex = 11;
-            this.picFoto.TabStop = false;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -238,6 +229,17 @@
             this.btnReceta.UseVisualStyleBackColor = false;
             this.btnReceta.Click += new System.EventHandler(this.btnReceta_Click);
             // 
+            // picFoto
+            // 
+            this.picFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picFoto.Image = global::ProyectoFinalAlgoritmos.Properties.Resources.img;
+            this.picFoto.Location = new System.Drawing.Point(27, 143);
+            this.picFoto.Name = "picFoto";
+            this.picFoto.Size = new System.Drawing.Size(360, 281);
+            this.picFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picFoto.TabIndex = 11;
+            this.picFoto.TabStop = false;
+            // 
             // UsrCtrlDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -263,8 +265,8 @@
             this.Controls.Add(this.txtId);
             this.Name = "UsrCtrlDatos";
             this.Size = new System.Drawing.Size(1115, 578);
-            ((System.ComponentModel.ISupportInitialize)(this.picFoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

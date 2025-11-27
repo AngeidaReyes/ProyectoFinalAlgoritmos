@@ -19,8 +19,8 @@ namespace ProyectoFinalAlgoritmos
             InitializeComponent();
             dgvTransacciones.ReadOnly = true;
             dgvPrima.ReadOnly = true;
-            
-            LeerTransacciones();           
+
+            LeerTransacciones();
             LeerTransaccionesMP();
             Permisos();
 
@@ -29,7 +29,6 @@ namespace ProyectoFinalAlgoritmos
 
             usrCtrlDatosTransacciones1.TransaccionRegistrada += (s, e) => LeerTransacciones();
             usrCtrlTransaccionesMP1.TransaccionRegistradaMP += (s, e) => LeerTransaccionesMP();
-
         }
 
         public void LeerTransacciones()
@@ -71,7 +70,7 @@ namespace ProyectoFinalAlgoritmos
             data.Columns.Add("Fecha");
             data.Columns.Add("Usuario");
 
-            var repoMP = new RepositorioTransaccionesMP(); 
+            var repoMP = new RepositorioTransaccionesMP();
             var transaccionesMP = repoMP.ObtenerTransacciones();
 
             foreach (var transaccion in transaccionesMP)
@@ -99,7 +98,7 @@ namespace ProyectoFinalAlgoritmos
                 btnRegPrima.Enabled = true;
             }
             else
-            { 
+            {
                 btnRegistrar.Enabled = false;
                 btnRegPrima.Enabled = false;
             }
@@ -109,7 +108,7 @@ namespace ProyectoFinalAlgoritmos
         {
             usrCtrlDatosTransacciones1.LimpiarCampos();
             usrCtrlDatosTransacciones1.Show();
-            usrCtrlDatosTransacciones1.BringToFront();          
+            usrCtrlDatosTransacciones1.BringToFront();
 
         }
 
@@ -130,7 +129,7 @@ namespace ProyectoFinalAlgoritmos
                     FileName = "ReporteTransacciones.xlsx"
                 };
 
-                if(saveFileDialog.ShowDialog() == DialogResult.OK)
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     wb.SaveAs(saveFileDialog.FileName);
                     MessageBox.Show("Reporte guardado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);

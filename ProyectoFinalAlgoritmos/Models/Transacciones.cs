@@ -12,7 +12,7 @@ namespace ProyectoFinalAlgoritmos.Models
         public int ProductoId { get; set; }
         public int Cantidad { get; set; }
         public DateTime Fecha { get; set; }
-        public string Tipo { get; set; } // "Entrada" o "Salida"
+        public string Tipo { get; set; } 
         public string Comentario { get; set; }
         public int UsuarioId { get; set; }
 
