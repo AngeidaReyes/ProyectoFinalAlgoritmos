@@ -63,6 +63,16 @@ namespace ProyectoFinalAlgoritmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap acercade {
+            get {
+                object obj = ResourceManager.GetObject("acercade", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cruz {
             get {
                 object obj = ResourceManager.GetObject("cruz", resourceCulture);

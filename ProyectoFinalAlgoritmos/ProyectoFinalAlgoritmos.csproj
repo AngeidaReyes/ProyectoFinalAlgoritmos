@@ -181,6 +181,12 @@
     <Compile Include="UsrCrtlUsuarios.Designer.cs">
       <DependentUpon>UsrCrtlUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="UsrCtrlAcerca.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UsrCtrlAcerca.Designer.cs">
+      <DependentUpon>UsrCtrlAcerca.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsrCtrlDatos.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UsrCrtlUsuarios.resx">
       <DependentUpon>UsrCrtlUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsrCtrlAcerca.resx">
+      <DependentUpon>UsrCtrlAcerca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsrCtrlDatos.resx">
       <DependentUpon>UsrCtrlDatos.cs</DependentUpon>
@@ -353,6 +362,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\img.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\acercade.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -30,26 +30,27 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.SidePanel = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnMatePrima = new System.Windows.Forms.Button();
             this.btnTransacciones = new System.Windows.Forms.Button();
-            this.SidePanel = new System.Windows.Forms.Panel();
             this.btnInformacion = new System.Windows.Forms.Button();
             this.btnProducto = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
             this.btnCatalogo = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.usrCrtlTransacciones1 = new ProyectoFinalAlgoritmos.UsrCrtlTransacciones();
             this.usrCtrlMateriaPrima1 = new ProyectoFinalAlgoritmos.UsrCtrlMateriaPrima();
             this.usrCrtlUsuarios1 = new ProyectoFinalAlgoritmos.UsrCrtlUsuarios();
             this.usrCtrlProductos1 = new ProyectoFinalAlgoritmos.UsrCtrlProductos();
             this.userCtrlCatalogo1 = new ProyectoFinalAlgoritmos.UserCtrlCatalogo();
             this.userControl11 = new ProyectoFinalAlgoritmos.UserControl1();
-            this.usrCrtlTransacciones1 = new ProyectoFinalAlgoritmos.UsrCrtlTransacciones();
+            this.usrCtrlAcerca1 = new ProyectoFinalAlgoritmos.UsrCtrlAcerca();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -68,6 +69,40 @@
             this.panel2.Size = new System.Drawing.Size(1115, 40);
             this.panel2.TabIndex = 14;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Controls.Add(this.btnMatePrima);
+            this.panel1.Controls.Add(this.btnTransacciones);
+            this.panel1.Controls.Add(this.SidePanel);
+            this.panel1.Controls.Add(this.btnInformacion);
+            this.panel1.Controls.Add(this.btnProducto);
+            this.panel1.Controls.Add(this.btnUser);
+            this.panel1.Controls.Add(this.btnCatalogo);
+            this.panel1.Controls.Add(this.btnHome);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(257, 654);
+            this.panel1.TabIndex = 13;
+            // 
+            // SidePanel
+            // 
+            this.SidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.SidePanel.Location = new System.Drawing.Point(0, 46);
+            this.SidePanel.Name = "SidePanel";
+            this.SidePanel.Size = new System.Drawing.Size(14, 68);
+            this.SidePanel.TabIndex = 4;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Location = new System.Drawing.Point(339, 25);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(166, 200);
+            this.panel3.TabIndex = 15;
             // 
             // button2
             // 
@@ -120,23 +155,6 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Maroon;
-            this.panel1.Controls.Add(this.btnMatePrima);
-            this.panel1.Controls.Add(this.btnTransacciones);
-            this.panel1.Controls.Add(this.SidePanel);
-            this.panel1.Controls.Add(this.btnInformacion);
-            this.panel1.Controls.Add(this.btnProducto);
-            this.panel1.Controls.Add(this.btnUser);
-            this.panel1.Controls.Add(this.btnCatalogo);
-            this.panel1.Controls.Add(this.btnHome);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(257, 654);
-            this.panel1.TabIndex = 13;
-            // 
             // btnMatePrima
             // 
             this.btnMatePrima.FlatAppearance.BorderSize = 0;
@@ -170,14 +188,6 @@
             this.btnTransacciones.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTransacciones.UseVisualStyleBackColor = true;
             this.btnTransacciones.Click += new System.EventHandler(this.button3_Click_1);
-            // 
-            // SidePanel
-            // 
-            this.SidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.SidePanel.Location = new System.Drawing.Point(0, 46);
-            this.SidePanel.Name = "SidePanel";
-            this.SidePanel.Size = new System.Drawing.Size(14, 68);
-            this.SidePanel.TabIndex = 4;
             // 
             // btnInformacion
             // 
@@ -264,15 +274,6 @@
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Location = new System.Drawing.Point(339, 25);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(166, 200);
-            this.panel3.TabIndex = 15;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -282,6 +283,14 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            // 
+            // usrCrtlTransacciones1
+            // 
+            this.usrCrtlTransacciones1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.usrCrtlTransacciones1.Location = new System.Drawing.Point(257, 40);
+            this.usrCrtlTransacciones1.Name = "usrCrtlTransacciones1";
+            this.usrCrtlTransacciones1.Size = new System.Drawing.Size(1115, 614);
+            this.usrCrtlTransacciones1.TabIndex = 27;
             // 
             // usrCtrlMateriaPrima1
             // 
@@ -328,13 +337,13 @@
             this.userControl11.Size = new System.Drawing.Size(1115, 384);
             this.userControl11.TabIndex = 22;
             // 
-            // usrCrtlTransacciones1
+            // usrCtrlAcerca1
             // 
-            this.usrCrtlTransacciones1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.usrCrtlTransacciones1.Location = new System.Drawing.Point(257, 40);
-            this.usrCrtlTransacciones1.Name = "usrCrtlTransacciones1";
-            this.usrCrtlTransacciones1.Size = new System.Drawing.Size(1115, 614);
-            this.usrCrtlTransacciones1.TabIndex = 27;
+            this.usrCtrlAcerca1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.usrCtrlAcerca1.Location = new System.Drawing.Point(257, 40);
+            this.usrCtrlAcerca1.Name = "usrCtrlAcerca1";
+            this.usrCtrlAcerca1.Size = new System.Drawing.Size(1115, 614);
+            this.usrCtrlAcerca1.TabIndex = 28;
             // 
             // Form1
             // 
@@ -342,6 +351,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1372, 654);
+            this.Controls.Add(this.usrCtrlAcerca1);
             this.Controls.Add(this.usrCrtlTransacciones1);
             this.Controls.Add(this.usrCtrlMateriaPrima1);
             this.Controls.Add(this.usrCrtlUsuarios1);
@@ -388,6 +398,7 @@
         private System.Windows.Forms.Button btnTransacciones;
         private UsrCtrlMateriaPrima usrCtrlMateriaPrima1;
         private UsrCrtlTransacciones usrCrtlTransacciones1;
+        private UsrCtrlAcerca usrCtrlAcerca1;
     }
 }
 

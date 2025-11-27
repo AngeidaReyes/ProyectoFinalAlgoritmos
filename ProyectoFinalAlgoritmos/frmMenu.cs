@@ -25,6 +25,8 @@ namespace ProyectoFinalAlgoritmos
             usrCrtlUsuarios1.Hide();
             usrCtrlMateriaPrima1.Hide();
             usrCrtlTransacciones1.Hide();
+            usrCtrlAcerca1.Hide();
+
             LLenarProductos();
             Permisos();
 
@@ -118,6 +120,9 @@ namespace ProyectoFinalAlgoritmos
         {
             SidePanel.Height = btnInformacion.Height;
             SidePanel.Top = btnInformacion.Top;
+            usrCtrlAcerca1.Show();
+            usrCtrlAcerca1.BringToFront();
+
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
