@@ -22,6 +22,7 @@ namespace ProyectoFinalAlgoritmos
             
             LeerTransacciones();           
             LeerTransaccionesMP();
+            Permisos();
 
             usrCtrlDatosTransacciones1.Hide();
             usrCtrlTransaccionesMP1.Hide();
@@ -89,6 +90,21 @@ namespace ProyectoFinalAlgoritmos
 
 
         }
+
+        public void Permisos()
+        {
+            if (Models.SesionUsuario.TipoUsuario == "Administrador")
+            {
+                btnRegistrar.Enabled = true;
+                btnRegPrima.Enabled = true;
+            }
+            else
+            { 
+                btnRegistrar.Enabled = false;
+                btnRegPrima.Enabled = false;
+            }
+        }
+
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             usrCtrlDatosTransacciones1.LimpiarCampos();

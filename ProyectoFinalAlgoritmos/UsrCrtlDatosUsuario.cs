@@ -47,12 +47,40 @@ namespace ProyectoFinalAlgoritmos
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                MessageBox.Show("El nombre del usuario es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtUsuario.Text))
+            {
+                MessageBox.Show("El nombre de usuario es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtContrasena.Text))
+            {
+                MessageBox.Show("La contraseña es obligatoria.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+                if (cmbTipoUsuario.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar un tipo de usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+            }
+
             Models.Usuarios user = new Models.Usuarios();
             user.Id = this.idUsuario;
             user.Nombre = txtNombre.Text;
             user.Usuario = txtUsuario.Text;
             user.Contrasena = txtContrasena.Text;
             user.TipoUsuario = cmbTipoUsuario.SelectedItem?.ToString();
+
+            DialogResult resultado = MessageBox.Show("¿Desea guardar los cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado != DialogResult.Yes)
+            {
+                return;
+            }
 
             var repo = new Repositories.RepositorioUsuarios();
             if (this.idUsuario == 0)

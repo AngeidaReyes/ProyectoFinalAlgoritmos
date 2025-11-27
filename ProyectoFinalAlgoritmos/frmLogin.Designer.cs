@@ -36,9 +36,7 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblContraseña = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.chkRecuerdame = new System.Windows.Forms.CheckBox();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.lnkOlvidar = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
@@ -135,18 +133,6 @@
             this.txtPassword.Size = new System.Drawing.Size(350, 30);
             this.txtPassword.TabIndex = 4;
             // 
-            // chkRecuerdame
-            // 
-            this.chkRecuerdame.AutoSize = true;
-            this.chkRecuerdame.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkRecuerdame.ForeColor = System.Drawing.Color.Silver;
-            this.chkRecuerdame.Location = new System.Drawing.Point(50, 469);
-            this.chkRecuerdame.Name = "chkRecuerdame";
-            this.chkRecuerdame.Size = new System.Drawing.Size(165, 27);
-            this.chkRecuerdame.TabIndex = 6;
-            this.chkRecuerdame.Text = "Recuerdame";
-            this.chkRecuerdame.UseVisualStyleBackColor = true;
-            // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(192)))), ((int)(((byte)(28)))));
@@ -162,19 +148,6 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             this.btnLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.btnLogin_Paint);
-            // 
-            // lnkOlvidar
-            // 
-            this.lnkOlvidar.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(192)))), ((int)(((byte)(28)))));
-            this.lnkOlvidar.AutoSize = true;
-            this.lnkOlvidar.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkOlvidar.LinkColor = System.Drawing.Color.Silver;
-            this.lnkOlvidar.Location = new System.Drawing.Point(76, 678);
-            this.lnkOlvidar.Name = "lnkOlvidar";
-            this.lnkOlvidar.Size = new System.Drawing.Size(296, 25);
-            this.lnkOlvidar.TabIndex = 8;
-            this.lnkOlvidar.TabStop = true;
-            this.lnkOlvidar.Text = "¿Olvidaste tu contraseña?";
             // 
             // pictureBox1
             // 
@@ -193,9 +166,7 @@
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(449, 793);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lnkOlvidar);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.chkRecuerdame);
             this.Controls.Add(this.lblContraseña);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.lblUsuario);
@@ -228,9 +199,7 @@
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblContraseña;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.CheckBox chkRecuerdame;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.LinkLabel lnkOlvidar;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

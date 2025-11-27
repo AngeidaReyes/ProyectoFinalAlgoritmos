@@ -55,6 +55,7 @@
             // 
             // lblTotalInventario
             // 
+            this.lblTotalInventario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTotalInventario.AutoSize = true;
             this.lblTotalInventario.Location = new System.Drawing.Point(38, 517);
             this.lblTotalInventario.Name = "lblTotalInventario";

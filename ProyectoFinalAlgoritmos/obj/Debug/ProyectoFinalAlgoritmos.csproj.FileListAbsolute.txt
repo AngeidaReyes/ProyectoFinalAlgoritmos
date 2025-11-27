@@ -59,7 +59,6 @@ C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\bin\
 C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\bin\Debug\System.Memory.dll
 C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\bin\Debug\ClosedXML.pdb
 C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\bin\Debug\ClosedXML.xml
 C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\bin\Debug\ClosedXML.Parser.xml
 C:\Users\areye\source\repos\ProyectoFinalAlgoritmos\ProyectoFinalAlgoritmos\bin\Debug\DocumentFormat.OpenXml.xml

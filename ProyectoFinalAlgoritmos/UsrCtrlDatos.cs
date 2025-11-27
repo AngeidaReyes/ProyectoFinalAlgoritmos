@@ -83,7 +83,7 @@ namespace ProyectoFinalAlgoritmos
                 return;
             }
 
-            // 🔹 Calcular costo automáticamente desde receta
+            // Calcular costo automáticamente desde receta
             var repo = new RepositorioProductos();
             decimal costoReal = repo.CalcularCostoReal(idProducto);
             decimal precioVenta = costoReal * 1.5m;

@@ -90,11 +90,6 @@ namespace ProyectoFinalAlgoritmos
                 MessageBox.Show("El precio del materia prima debe ser un número válido mayor o igual a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!decimal.TryParse(nudCantidad.Text, out decimal cantidad) || cantidad < 0)
-            {
-                MessageBox.Show("La cantidad del materia prima debe ser un número entero válido mayor o igual a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             if (!decimal.TryParse(nudMinimo.Text, out decimal minimo) || minimo < 0)
             {
                 MessageBox.Show("El minimo de la materia prima debe ser un número entero válido mayor o igual a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -105,8 +100,6 @@ namespace ProyectoFinalAlgoritmos
                 MessageBox.Show("La fecha de la materia prima debe ser un número entero válido mayor o igual a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-
 
 
             MateriaPrima materiaprima = new MateriaPrima();

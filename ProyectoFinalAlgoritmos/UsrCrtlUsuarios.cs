@@ -111,7 +111,6 @@ namespace ProyectoFinalAlgoritmos
             var valor = dgvUsuarios.SelectedRows[0].Cells[0].Value.ToString();
             if (valor == null || valor.Length == 0)
             {
-                //MessageBox.Show("Seleccione un producto para editar.");
                 return;
             }
 
