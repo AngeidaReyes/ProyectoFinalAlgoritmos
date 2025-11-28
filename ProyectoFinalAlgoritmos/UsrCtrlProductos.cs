@@ -47,7 +47,7 @@ namespace ProyectoFinalAlgoritmos
                 row["Nombre"] = producto.Nombre;
                 row["Descripción"] = producto.Descripcion;
 
-                // Cálculo según modalidad de la empresa
+                // Este es el cálculo para costo
                 decimal costoReal = repo.CalcularCostoReal(producto.Id);
                 decimal precioVenta = costoReal * 1.5m;
 
@@ -100,7 +100,7 @@ namespace ProyectoFinalAlgoritmos
                 return;
             }
 
-            var valor = dgvProductos.SelectedRows[0].Cells["ID"].Value?.ToString(); // usa el nombre de columna
+            var valor = dgvProductos.SelectedRows[0].Cells["ID"].Value?.ToString(); 
             if (string.IsNullOrEmpty(valor))
             {
                 MessageBox.Show("El producto seleccionado no es válido.");
@@ -133,7 +133,7 @@ namespace ProyectoFinalAlgoritmos
                 }
 
                 var fila = dgvProductos.SelectedRows[0];
-                var celdaId = fila.Cells["Id"].Value; // ← Usa el nombre real de la columna que contiene el ID
+                var celdaId = fila.Cells["Id"].Value; 
 
                 if (celdaId == null || !int.TryParse(celdaId.ToString(), out int id))
                 {
@@ -154,7 +154,7 @@ namespace ProyectoFinalAlgoritmos
                 LeerProductos();
             }
         }
-        // Método para suscribirse al evento del control de materia prima
+        // este es para suscribirse al evento del ctrl de materia prima
         public void SuscribirACambiosDeCosto()
         {
             if (ControlMateriaPrima != null)
@@ -163,11 +163,11 @@ namespace ProyectoFinalAlgoritmos
             }
         }
 
-        // Se ejecuta cuando llega el nuevo costo
+    
         private void OnCostoMateriaActualizado(decimal nuevoCosto)
         {
             costoTotalMateriaPrima = nuevoCosto;
-            LeerProductos(); // Refresca la grilla con el nuevo costo
+            LeerProductos();
         }
     }
 }

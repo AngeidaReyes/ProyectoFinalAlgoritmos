@@ -41,14 +41,14 @@ namespace ProyectoFinalAlgoritmos
 
         private void ConectarControles()
         {
-            // Pasar referencia del control de materia prima al de productos
+            // Esto es para referencia del control de materia prima al de productos
             usrCtrlProductos1.ControlMateriaPrima = usrCtrlMateriaPrima1;
 
-            // Suscribir al evento de costo
+            // y esto es para suscribir al evento de costo
             usrCtrlProductos1.SuscribirACambiosDeCosto();
 
-            // Opcional: Forzar actualización inicial
-            usrCtrlMateriaPrima1.LeerMateriaPrima(); // Dispara el evento
+            //esto ayuda a forzar actualización inicial
+            usrCtrlMateriaPrima1.LeerMateriaPrima(); 
         }
 
         public void Permisos()

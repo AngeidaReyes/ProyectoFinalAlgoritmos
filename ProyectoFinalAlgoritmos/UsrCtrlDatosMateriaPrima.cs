@@ -69,7 +69,7 @@ namespace ProyectoFinalAlgoritmos
             });
 
             cmbBoxUnidad.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbBoxUnidad.SelectedIndex = 0; // Selección por defecto
+            cmbBoxUnidad.SelectedIndex = 0; 
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

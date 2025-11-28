@@ -15,7 +15,7 @@ namespace ProyectoFinalAlgoritmos
 {
     public partial class frmLogin : Form
     {
-        //Cadena de conexión a la base de datos SQL Server
+        
         SqlConnection conexion = new SqlConnection("Data Source=100.122.79.72,1433;Initial Catalog=InventarioBD;User ID=Aniana;Password=12345;");
 
         [System.Runtime.InteropServices.DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]

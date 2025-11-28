@@ -28,7 +28,7 @@ namespace ProyectoFinalAlgoritmos.Repositories
 
                     using (var lector = comando.ExecuteReader())
                     {
-                        // Obtener índice seguro de la columna binaria
+                        //esto obtiene índice seguro de la columna binaria
                         int idxFoto = lector.GetOrdinal("foto_producto");
 
                         while (lector.Read())
@@ -37,7 +37,7 @@ namespace ProyectoFinalAlgoritmos.Repositories
 
                             if (!lector.IsDBNull(idxFoto))
                             {
-                                // Validación extra por si el tipo no es exactamente byte[]
+                                //esto es una validacion extra por si el tipo no es exactamente byte[]
                                 var valorFoto = lector[idxFoto];
                                 if (valorFoto is byte[])
                                     foto = (byte[])valorFoto;
@@ -85,7 +85,7 @@ namespace ProyectoFinalAlgoritmos.Repositories
 
                         if (!lector.IsDBNull(idxFoto))
                         {
-                            // Validación extra por si el tipo no es exactamente byte[]
+                           
                             var valorFoto = lector[idxFoto];
                             if (valorFoto is byte[])
                                 foto = (byte[])valorFoto;
@@ -134,7 +134,6 @@ namespace ProyectoFinalAlgoritmos.Repositories
             }
             catch (Exception ex)
             {
-                // Manejo de errores (puedes registrar el error o mostrar un mensaje)
                 Console.WriteLine("Error al agregar producto: " + ex.Message);                
             }
         }
@@ -158,7 +157,7 @@ namespace ProyectoFinalAlgoritmos.Repositories
             }
             catch (Exception ex)
             {
-                // Manejo de errores (puedes registrar el error o mostrar un mensaje)
+               
                 Console.WriteLine("Error al actualizar producto: " + ex.Message);                
             }
         }
@@ -225,7 +224,7 @@ namespace ProyectoFinalAlgoritmos.Repositories
             }
         }
 
-        // Actualiza precio automáticamente
+        // Esto es para actualizar el precio automáticamente
         public void ActualizarPrecioProducto(int productoId, decimal nuevoPrecio)
         {
             using (var conexion = new SqlConnection(connectionString))
@@ -238,7 +237,7 @@ namespace ProyectoFinalAlgoritmos.Repositories
             }
         }
 
-        // Actualiza costo y precio juntos
+        // Esto igual es para actualizar costo y precio pero juntos
         public void ActualizarCostoYPrecio(int productoId)
         {
             decimal costo = CalcularCostoReal(productoId);

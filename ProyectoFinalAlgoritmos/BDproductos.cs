@@ -37,9 +37,9 @@ namespace ProyectoFinalAlgoritmos
             comando.CommandType = CommandType.Text;
             SqlDataReader reader = comando.ExecuteReader();
 
-            int x = 10; // margen inicial X
-            int y = 10; // margen inicial Y
-            int spacing = 40; // espacio entre botones
+            int x = 10; // esto es el margen inicial 
+            int y = 10; // esto igual es el margen inicial 
+            int spacing = 40; //para el espacio entre botones
 
 
             while (reader.Read())
@@ -49,7 +49,7 @@ namespace ProyectoFinalAlgoritmos
 
                 if (!reader.IsDBNull(idxFoto))
                 {
-                    // Validación extra por si el tipo no es exactamente byte[]
+                    
                     var valorFoto = reader[idxFoto];
                     if (valorFoto is byte[])
                         foto = (byte[])valorFoto;
@@ -78,17 +78,17 @@ namespace ProyectoFinalAlgoritmos
                 }
                 else
                 {
-                    btn.ImgProducto = null; // o una imagen por defecto si prefieres
+                    btn.ImgProducto = null;
                 }
 
-                // Establecer tamaño y posición
+                // esto es para el tamaño y posición
                 btn.Size = new Size(450, 250);
                 btn.Location = new Point(x, y);
 
                 // Agregar al contenedor
                 Contenedor.Controls.Add(btn);
 
-                // Calcular posición para el siguiente botón
+                // Esto es para calcular la posición para el siguiente botón
                 x += btn.Width + spacing;
                 if (x + btn.Width > Contenedor.Width) // salto de línea
                 {

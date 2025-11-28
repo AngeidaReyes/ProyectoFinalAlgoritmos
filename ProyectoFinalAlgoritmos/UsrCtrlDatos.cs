@@ -83,7 +83,7 @@ namespace ProyectoFinalAlgoritmos
                 return;
             }
 
-            // Calcular costo automáticamente desde receta
+            // esto es para calcular costo automáticamente desde receta
             var repo = new RepositorioProductos();
             decimal costoReal = repo.CalcularCostoReal(idProducto);
             decimal precioVenta = costoReal * 1.5m;
@@ -116,7 +116,7 @@ namespace ProyectoFinalAlgoritmos
                 repo.ActualizarProducto(producto);
             }
 
-            // 🔹 Actualiza costo en BD
+            // Esto ayuda a actualizar el costo en BD
             repo.ActualizarCostoProducto(producto.Id, costoReal);
 
             ProductoGuardado?.Invoke(this, EventArgs.Empty);
@@ -150,7 +150,7 @@ namespace ProyectoFinalAlgoritmos
             {
                 using (MemoryStream ms = new MemoryStream())
                 {
-                    using (Bitmap bmp = new Bitmap(imagen)) // Clonamos la imagen
+                    using (Bitmap bmp = new Bitmap(imagen)) 
                     {
                         bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
                         return ms.ToArray();
@@ -174,7 +174,6 @@ namespace ProyectoFinalAlgoritmos
 
             var frm = new FrmRecetaProducto(idProducto);
 
-            // Escuchar cuando se guarda la receta
             frm.RecetaGuardada += (s, ev) =>
             {
                 ActualizarCostoYPrecioDesdeReceta();
@@ -182,7 +181,7 @@ namespace ProyectoFinalAlgoritmos
 
             frm.ShowDialog();
 
-            // También recalcular al cerrar, por si hubo cambios sin guardar explícitamente
+            // Esto recalcular al cerrar
             ActualizarCostoYPrecioDesdeReceta();
 
         }
@@ -200,7 +199,7 @@ namespace ProyectoFinalAlgoritmos
 
         public void ActualizarCosto(decimal nuevoCosto)
         {
-            txtCosto.Text = nuevoCosto.ToString("C"); // o lblCosto.Text si usas Label
+            txtCosto.Text = nuevoCosto.ToString("C"); 
         }
     }
 }

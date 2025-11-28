@@ -132,7 +132,7 @@ namespace ProyectoFinalAlgoritmos
                 return;
             }
 
-            var valor = dgvMatePrima.SelectedRows[0].Cells["ID"].Value?.ToString(); // usa el nombre de columna
+            var valor = dgvMatePrima.SelectedRows[0].Cells["ID"].Value?.ToString(); 
             if (string.IsNullOrEmpty(valor))
             {
                 MessageBox.Show("El producto seleccionado no es válido.");
@@ -160,7 +160,7 @@ namespace ProyectoFinalAlgoritmos
             var valor = dgvMatePrima.SelectedRows[0].Cells[0].Value.ToString();
             if (valor == null || valor.Length == 0)
             {
-                //MessageBox.Show("Seleccione uno para editar.");
+                
                 return;
             }
 
@@ -194,7 +194,7 @@ namespace ProyectoFinalAlgoritmos
                 return;
             }
 
-            // Construir el reporte en texto plano
+            
             var sb = new StringBuilder();
 
             sb.AppendLine("------REPORTE DE INVENTARIO------");
@@ -216,7 +216,7 @@ namespace ProyectoFinalAlgoritmos
 
             string reporte = sb.ToString();
 
-            // Guardar en archivo .txt
+            // Esto es para que se guarde en archivo .txt
             try
             {
                 string rutaArchivo = Path.Combine(
@@ -229,7 +229,7 @@ namespace ProyectoFinalAlgoritmos
                 MessageBox.Show($"Reporte guardado exitosamente:\n{rutaArchivo}",
                     "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Opcional: Abrir el archivo automáticamente
+               
                 System.Diagnostics.Process.Start("notepad.exe", rutaArchivo);
             }
             catch (Exception ex)

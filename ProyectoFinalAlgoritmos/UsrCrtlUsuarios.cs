@@ -134,7 +134,7 @@ namespace ProyectoFinalAlgoritmos
             if (dgvUsuarios.Columns[e.ColumnIndex].Name == "Contraseña" && e.Value != null)
             {
                 string texto = e.Value.ToString();
-                e.Value = new string('●', texto.Length); // o '*'
+                e.Value = new string('●', texto.Length);
             }
 
             if (e.ColumnIndex == 4 && e.Value != null) // Suponiendo que la columna 4 es "Tipo de Usuario"
@@ -142,17 +142,17 @@ namespace ProyectoFinalAlgoritmos
                 string tipoUsuario = e.Value.ToString();
                 if (tipoUsuario == "Admin")
                 {
-                    e.CellStyle.BackColor = Color.LightCoral; // Color para Admin
+                    e.CellStyle.BackColor = Color.LightCoral; 
                     e.CellStyle.ForeColor = Color.White;
                 }
                 else if (tipoUsuario == "User")
                 {
-                    e.CellStyle.BackColor = Color.LightBlue; // Color para User
+                    e.CellStyle.BackColor = Color.LightBlue; 
                     e.CellStyle.ForeColor = Color.Black;
                 }
                 else
                 {
-                    e.CellStyle.BackColor = Color.LightGray; // Color para otros tipos
+                    e.CellStyle.BackColor = Color.LightGray; 
                     e.CellStyle.ForeColor = Color.Black;
                 }
             }

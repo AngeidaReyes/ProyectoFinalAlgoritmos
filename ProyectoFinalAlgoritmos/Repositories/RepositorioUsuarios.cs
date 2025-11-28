@@ -37,7 +37,7 @@ namespace ProyectoFinalAlgoritmos.Repositories
             }
             catch (Exception ex)
             {
-                // Manejo de errores (puedes registrar el error o mostrar un mensaje)
+               
                 Console.WriteLine("Error al obtener usuarios: " + ex.Message);
             }
             return usuarios;
@@ -94,7 +94,7 @@ namespace ProyectoFinalAlgoritmos.Repositories
             }
             catch (Exception ex)
             {
-                // Manejo de errores (puedes registrar el error o mostrar un mensaje)
+                
                 Console.WriteLine("Error al agregar usuario: " + ex.Message);
             }
         }
@@ -117,7 +117,7 @@ namespace ProyectoFinalAlgoritmos.Repositories
             }
             catch (Exception ex)
             {
-                // Manejo de errores (puedes registrar el error o mostrar un mensaje)
+               
                 Console.WriteLine("Error al actualizar usuario: " + ex.Message);
             }
         }
@@ -135,7 +135,7 @@ namespace ProyectoFinalAlgoritmos.Repositories
             }
             catch (Exception ex)
             {
-                // Manejo de errores (puedes registrar el error o mostrar un mensaje)
+               
                 Console.WriteLine("Error al eliminar usuario: " + ex.Message);
             }
         }

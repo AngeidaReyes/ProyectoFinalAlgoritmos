@@ -54,7 +54,7 @@ namespace ProyectoFinalAlgoritmos.Repositories
             }
         }
 
-        // Cargar materias de un producto (para el grid)
+        // Esto es para cargar materias de un producto (para el grid precisamente)
         public List<Receta> ObtenerRecetaPorProducto(int productoId)
         {
             var lista = new List<Receta>();
@@ -90,7 +90,7 @@ namespace ProyectoFinalAlgoritmos.Repositories
                             CantidadRequerida = reader.GetDecimal(3),
                             NombreMateria = reader.GetString(4),
                             PrecioUnitarioMateria = reader.GetDecimal(5)
-                            // CostoParcial se calcula automáticamente en el modelo
+                            // CostoParcial se calcula automáticamente 
                         };
 
                         lista.Add(receta);

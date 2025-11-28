@@ -18,7 +18,7 @@ namespace ProyectoFinalAlgoritmos
         private RepositorioReceta repoReceta;
         private RepositorioMateriaPrima repoMateria;
 
-        // NUEVO: Evento para avisar que se guardó la receta
+        // Es para avisar que se guardó la receta
         public event EventHandler RecetaGuardada;
 
         public FrmRecetaProducto(int productoId)
@@ -59,10 +59,10 @@ namespace ProyectoFinalAlgoritmos
             };
             dgvReceta.Columns.Add(colEliminar);
 
-            // 🔹 Asegurar que el evento esté conectado
+           
             dgvReceta.CellContentClick += dgvReceta_CellContentClick;
 
-            // 🔹 Opcional: mejorar comportamiento visual
+           
             dgvReceta.AllowUserToAddRows = false;
             dgvReceta.ReadOnly = true;
             dgvReceta.EditMode = DataGridViewEditMode.EditProgrammatically;

@@ -101,7 +101,7 @@ namespace ProyectoFinalAlgoritmos.Repositories
             }
             catch (Exception ex)
             {
-                // Manejo de errores (puedes registrar el error o mostrar un mensaje)
+               
                 MessageBox.Show("Error al guardar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -125,7 +125,7 @@ namespace ProyectoFinalAlgoritmos.Repositories
             }
             catch (Exception ex)
             {
-                // Manejo de errores (puedes registrar el error o mostrar un mensaje)
+               
                 Console.WriteLine("Error al actualizar materia prima: " + ex.Message);
             }
         }
