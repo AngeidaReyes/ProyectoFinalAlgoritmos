@@ -183,9 +183,11 @@ namespace ProyectoFinalAlgoritmos
 
         private void btnReporteValor_Click(object sender, EventArgs e)
         {
-
+            
             var repo = new RepositorioMateriaPrima();
             var lista = repo.ObtenerMateriaPrima();
+            var repoMP = new RepositorioTransaccionesMP();
+
 
             if (!lista.Any())
             {
@@ -206,6 +208,8 @@ namespace ProyectoFinalAlgoritmos
 
             foreach (var m in lista)
             {
+                m.Cantidad = repoMP.ObtenerCantidadActual(m.Id);
+
                 decimal valor = m.Precio * m.Cantidad;
                 granTotal += valor;
                 sb.AppendLine($"{m.Nombre.PadRight(25)} {m.Cantidad,7:F2} {m.Unidad.PadRight(12)} {valor,12:C}");
