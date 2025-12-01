@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProyectoFinalAlgoritmos.Repositories;
 
 namespace ProyectoFinalAlgoritmos
 {
@@ -63,12 +64,15 @@ namespace ProyectoFinalAlgoritmos
                 Fecha = Convert.ToDateTime(reader[4]);
                 Imagen = foto;
 
+                var repoTrans = new RepositorioTransacciones();
+
                 Botones btn = new Botones();
                 btn.Id = Id_producto;
                 btn.NameProducto = NombreProducto;
                 btn.Precio = "$" + Precio.ToString("N2");
                 btn.Descripcion = Descripcion;
                 btn.FechaCreacion = Fecha;
+                btn.CantidadProducto = repoTrans.ObtenerCantidadActual(Id_producto);
                 if (Imagen != null && Imagen.Length > 0)
                 {
                     using (MemoryStream ms = new MemoryStream(Imagen))
@@ -161,6 +165,8 @@ namespace ProyectoFinalAlgoritmos
                     }
                 }
 
+                var repoTrans = new RepositorioTransacciones();
+
                 Botones btn = new Botones
                 {
                     Id = Id_producto,
@@ -170,8 +176,8 @@ namespace ProyectoFinalAlgoritmos
                     FechaCreacion = Fecha,
                     ImgProducto = imagenProducto,
                     Size = new Size(350, 150),
-                    Location = new Point(x, y)
-
+                    Location = new Point(x, y),
+                    CantidadProducto = repoTrans.ObtenerCantidadActual(Id_producto)
                 };
 
                 // Agrega al panel de resultados
@@ -263,6 +269,8 @@ namespace ProyectoFinalAlgoritmos
             Contenedor.panelResultados.Controls.Clear();
             int x = 10, y = 10, spacing = 10;
 
+            var repoTrans = new RepositorioTransacciones();
+
             foreach (var prod in listaProductos)
             {
                 Botones btn = new Botones
@@ -276,7 +284,8 @@ namespace ProyectoFinalAlgoritmos
     ? Image.FromStream(new MemoryStream(prod.Imagen))
     : null,
                     Size = new Size(350, 150),
-                    Location = new Point(x, y)
+                    Location = new Point(x, y),
+                    CantidadProducto = repoTrans.ObtenerCantidadActual(prod.Id_producto)
                 };
 
                 Contenedor.panelResultados.Controls.Add(btn);
