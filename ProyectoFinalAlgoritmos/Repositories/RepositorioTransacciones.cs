@@ -172,7 +172,7 @@ namespace ProyectoFinalAlgoritmos.Repositories
             return dt;
         }
 
-        public DataTable ObtenerReporteProducto(int idProducto)
+        public DataTable ObtenerReporteProducto(int id, DateTime inicio, DateTime fin)
         {
             DataTable dt = new DataTable();
             try
@@ -190,12 +190,15 @@ namespace ProyectoFinalAlgoritmos.Repositories
                              FROM TransaccionesInventario ti
                              JOIN Productos p ON ti.id_producto = p.id_producto
                              JOIN Usuarios u ON ti.id_usuario = u.id_usuario
-                             WHERE ti.id_producto = @IdProducto  
+                             WHERE ti.id_producto = @IdProducto 
+                             AND ti.fecha BETWEEN @Inicio AND @Fin
                              ORDER BY ti.fecha DESC";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                        cmd.Parameters.AddWithValue("@IdProducto", id);
+                        cmd.Parameters.AddWithValue("@Inicio", inicio);
+                        cmd.Parameters.AddWithValue("@Fin", fin);
                         using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                         {
                             adapter.Fill(dt);

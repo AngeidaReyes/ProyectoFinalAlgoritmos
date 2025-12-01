@@ -33,8 +33,8 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.usrCtrlDatos1 = new ProyectoFinalAlgoritmos.UsrCtrlDatos();
             this.btnReporte = new System.Windows.Forms.Button();
+            this.usrCtrlDatos1 = new ProyectoFinalAlgoritmos.UsrCtrlDatos();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,6 +107,20 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Gestión de Productos";
             // 
+            // btnReporte
+            // 
+            this.btnReporte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporte.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnReporte.Location = new System.Drawing.Point(26, 516);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(268, 69);
+            this.btnReporte.TabIndex = 8;
+            this.btnReporte.Text = "Generar Reporte";
+            this.btnReporte.UseVisualStyleBackColor = false;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
+            // 
             // usrCtrlDatos1
             // 
             this.usrCtrlDatos1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -114,20 +128,6 @@
             this.usrCtrlDatos1.Name = "usrCtrlDatos1";
             this.usrCtrlDatos1.Size = new System.Drawing.Size(1115, 647);
             this.usrCtrlDatos1.TabIndex = 7;
-            // 
-            // btnReporte
-            // 
-            this.btnReporte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(40)))));
-            this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporte.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnReporte.Location = new System.Drawing.Point(26, 516);
-            this.btnReporte.Name = "btnReporte";
-            this.btnReporte.Size = new System.Drawing.Size(161, 69);
-            this.btnReporte.TabIndex = 8;
-            this.btnReporte.Text = "Generar Reporte";
-            this.btnReporte.UseVisualStyleBackColor = false;
-            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
             // 
             // UsrCtrlProductos
             // 
@@ -149,13 +149,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label label1;
         private UsrCtrlDatos usrCtrlDatos1;
         private System.Windows.Forms.Button btnReporte;
+        public System.Windows.Forms.DataGridView dgvProductos;
     }
 }

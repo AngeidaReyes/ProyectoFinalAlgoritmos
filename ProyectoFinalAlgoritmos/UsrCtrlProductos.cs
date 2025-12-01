@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoFinalAlgoritmos.Models;
+using System.IO;
 
 namespace ProyectoFinalAlgoritmos
 {
@@ -185,37 +186,33 @@ namespace ProyectoFinalAlgoritmos
                 return;
             }
 
+
             int id = int.Parse(valor);
             var repo = new RepositorioProductos();
             var producto = repo.ObtenerProducto(id);
 
-            var repoTrans = new RepositorioTransacciones();
-            var reporte = repoTrans.ObtenerReporteProducto(id);
-
-            if (producto == null)
+            using (var frmFechas = new frmFechasReporte(producto.Nombre))
             {
-                MessageBox.Show("No se encontró el producto seleccionado.");
-                return;
-            }
-
-            using (var wb = new ClosedXML.Excel.XLWorkbook())
-            {
-                var ws = wb.Worksheets.Add(reporte, "ReporteTransacciones");
-                ws.Columns().AdjustToContents();
-
-                var saveFileDialog = new SaveFileDialog
+                if(frmFechas.ShowDialog() == DialogResult.OK)
                 {
-                    Filter = "Archivos de Excel (*.xlsx)|*.xlsx",
-                    Title = "Guardar reporte de transacciones",
-                    FileName = "ReporteTransaccionesProducto.xlsx"
-                };
+                    var repoTrans = new RepositorioTransacciones();
+                    var reporte = repoTrans.ObtenerReporteProducto(id, frmFechas.FechaInicio, frmFechas.FechaFin);
 
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    wb.SaveAs(saveFileDialog.FileName);
-                    MessageBox.Show("Reporte guardado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    using (var wb = new ClosedXML.Excel.XLWorkbook())
+                    {
+                        var ws = wb.Worksheets.Add(reporte, "ReporteTransacciones");
+                        ws.Columns().AdjustToContents();
+
+                        string ruta = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"ReporteProducto_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx");
+
+                        wb.SaveAs(ruta);
+                        MessageBox.Show($"Reporte guardado exitosamente, en: \n{ruta}.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        System.Diagnostics.Process.Start(ruta);
+                    }
                 }
-            }
+            }        
+
         }
     }
 }

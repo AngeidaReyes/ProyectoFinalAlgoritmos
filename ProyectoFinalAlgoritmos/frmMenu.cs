@@ -84,7 +84,8 @@ namespace ProyectoFinalAlgoritmos
             usrCtrlProductos1.Hide();
             usrCrtlUsuarios1.Hide();
             usrCtrlMateriaPrima1.Hide();
-
+            usrCrtlTransacciones1.Hide();
+            usrCtrlAcerca1.Hide();
 
         }
 
