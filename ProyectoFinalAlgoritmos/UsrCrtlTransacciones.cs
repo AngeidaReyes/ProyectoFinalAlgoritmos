@@ -1,4 +1,7 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using ProyectoFinalAlgoritmos.Models;
+using ProyectoFinalAlgoritmos.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ProyectoFinalAlgoritmos.Models;
-using ProyectoFinalAlgoritmos.Repositories;
+using System.IO;
 
 namespace ProyectoFinalAlgoritmos
 {
@@ -122,18 +124,12 @@ namespace ProyectoFinalAlgoritmos
                 var ws = wb.Worksheets.Add(dt, "ReporteTransacciones");
                 ws.Columns().AdjustToContents();
 
-                var saveFileDialog = new SaveFileDialog
-                {
-                    Filter = "Archivos de Excel (*.xlsx)|*.xlsx",
-                    Title = "Guardar reporte de transacciones",
-                    FileName = "ReporteTransacciones.xlsx"
-                };
+                string ruta = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"ReporteTransacciones_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx");
 
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    wb.SaveAs(saveFileDialog.FileName);
-                    MessageBox.Show("Reporte guardado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                wb.SaveAs(ruta);
+                MessageBox.Show($"Reporte guardado exitosamente, en: \n{ruta}.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                System.Diagnostics.Process.Start(ruta);
             }
 
         }
@@ -155,18 +151,12 @@ namespace ProyectoFinalAlgoritmos
                 var ws = wb.Worksheets.Add(dt, "RepMateriaPrima");
                 ws.Columns().AdjustToContents();
 
-                var saveFileDialog = new SaveFileDialog
-                {
-                    Filter = "Archivos de Excel (*.xlsx)|*.xlsx",
-                    Title = "Guardar reporte de transacciones",
-                    FileName = "ReporteTransacciones_MateriaPrima.xlsx"
-                };
+                string ruta = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"ReporteTransaccionesMP_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx");
 
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    wb.SaveAs(saveFileDialog.FileName);
-                    MessageBox.Show("Reporte guardado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                wb.SaveAs(ruta);
+                MessageBox.Show($"Reporte guardado exitosamente, en: \n{ruta}.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                System.Diagnostics.Process.Start(ruta);
             }
         }
 
