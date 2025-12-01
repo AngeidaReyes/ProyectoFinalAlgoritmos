@@ -171,5 +171,44 @@ namespace ProyectoFinalAlgoritmos.Repositories
             }
             return dt;
         }
+
+        public DataTable ObtenerReporteProducto(int idProducto)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = @"SELECT ti.id_transaccion AS 'ID Transacción',
+                                    p.nombre_producto AS 'Producto',
+                                    ti.tipo_transaccion AS 'Tipo',
+                                    ti.cantidad AS 'Cantidad',
+                                    ti.fecha AS 'Fecha',
+                                    u.nombre AS 'Usuario',
+                                    ti.comentario AS 'Comentario'
+                             FROM TransaccionesInventario ti
+                             JOIN Productos p ON ti.id_producto = p.id_producto
+                             JOIN Usuarios u ON ti.id_usuario = u.id_usuario
+                             WHERE ti.id_producto = @IdProducto  
+                             ORDER BY ti.fecha DESC";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            adapter.Fill(dt);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener reporte de transacciones: " + ex.Message);
+            }
+            return dt;
+
+        }
     }
 }

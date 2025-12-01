@@ -34,6 +34,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.usrCtrlDatos1 = new ProyectoFinalAlgoritmos.UsrCtrlDatos();
+            this.btnReporte = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,10 +115,25 @@
             this.usrCtrlDatos1.Size = new System.Drawing.Size(1115, 647);
             this.usrCtrlDatos1.TabIndex = 7;
             // 
+            // btnReporte
+            // 
+            this.btnReporte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(40)))));
+            this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporte.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnReporte.Location = new System.Drawing.Point(26, 516);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(161, 69);
+            this.btnReporte.TabIndex = 8;
+            this.btnReporte.Text = "Generar Reporte";
+            this.btnReporte.UseVisualStyleBackColor = false;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
+            // 
             // UsrCtrlProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
@@ -140,5 +156,6 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label label1;
         private UsrCtrlDatos usrCtrlDatos1;
+        private System.Windows.Forms.Button btnReporte;
     }
 }

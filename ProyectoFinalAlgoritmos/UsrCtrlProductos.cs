@@ -169,5 +169,53 @@ namespace ProyectoFinalAlgoritmos
             costoTotalMateriaPrima = nuevoCosto;
             LeerProductos();
         }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            if (dgvProductos.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione un producto.");
+                return;
+            }
+
+            var valor = dgvProductos.SelectedRows[0].Cells["ID"].Value?.ToString();
+            if (string.IsNullOrEmpty(valor))
+            {
+                MessageBox.Show("El producto seleccionado no es válido.");
+                return;
+            }
+
+            int id = int.Parse(valor);
+            var repo = new RepositorioProductos();
+            var producto = repo.ObtenerProducto(id);
+
+            var repoTrans = new RepositorioTransacciones();
+            var reporte = repoTrans.ObtenerReporteProducto(id);
+
+            if (producto == null)
+            {
+                MessageBox.Show("No se encontró el producto seleccionado.");
+                return;
+            }
+
+            using (var wb = new ClosedXML.Excel.XLWorkbook())
+            {
+                var ws = wb.Worksheets.Add(reporte, "ReporteTransacciones");
+                ws.Columns().AdjustToContents();
+
+                var saveFileDialog = new SaveFileDialog
+                {
+                    Filter = "Archivos de Excel (*.xlsx)|*.xlsx",
+                    Title = "Guardar reporte de transacciones",
+                    FileName = "ReporteTransaccionesProducto.xlsx"
+                };
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    wb.SaveAs(saveFileDialog.FileName);
+                    MessageBox.Show("Reporte guardado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
     }
 }
