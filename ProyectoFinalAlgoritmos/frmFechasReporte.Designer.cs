@@ -103,6 +103,7 @@
             this.Controls.Add(this.dtpFin);
             this.Controls.Add(this.dtpInicio);
             this.Name = "frmFechasReporte";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmFechasReporte";
             this.ResumeLayout(false);
             this.PerformLayout();

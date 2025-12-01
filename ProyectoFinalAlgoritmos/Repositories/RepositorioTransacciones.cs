@@ -203,7 +203,21 @@ namespace ProyectoFinalAlgoritmos.Repositories
                         {
                             adapter.Fill(dt);
                         }
+
+                        decimal totalCantidad = 0;
+                        if (dt.Rows.Count > 0)
+                        {
+                            totalCantidad = dt.AsEnumerable()
+                                              .Sum(r => Convert.ToDecimal(r["Cantidad"]));
+                        }
+
+                        DataRow totalRow = dt.NewRow();
+                        totalRow["Tipo"] = "TOTAL";
+                        totalRow["Cantidad"] = totalCantidad;
+                        dt.Rows.Add(totalRow);
+
                     }
+
                 }
             }
             catch (Exception ex)

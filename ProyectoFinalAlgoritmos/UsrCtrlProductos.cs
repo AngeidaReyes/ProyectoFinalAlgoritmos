@@ -191,6 +191,8 @@ namespace ProyectoFinalAlgoritmos
             var repo = new RepositorioProductos();
             var producto = repo.ObtenerProducto(id);
 
+            
+
             using (var frmFechas = new frmFechasReporte(producto.Nombre))
             {
                 if(frmFechas.ShowDialog() == DialogResult.OK)
